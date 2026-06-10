@@ -11,7 +11,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD DD Anime Fury Duke Dragon Duke Gold Pass Gold Pass Reward",
       "set": "Anime Fury",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/anime-fury-prince.png"
     },
     {
       "name": "Armored Prince",
@@ -21,7 +21,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Armored",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/armored-prince.png"
     },
     {
       "name": "Beatsmasher Prince",
@@ -31,7 +31,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD DD Showmaster Duke Dragon Duke Legendary $9.99 USD",
       "set": "Beatsmasher",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/beatsmasher-prince.png"
     },
     {
       "name": "Clash-A-Rama Prince",
@@ -41,7 +41,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Clash-A-Rama",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/clash-a-rama-prince.png"
     },
     {
       "name": "Cyclone Prince",
@@ -51,7 +51,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Cyclone",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/cyclone-prince.png"
     },
     {
       "name": "DragonScale Prince",
@@ -61,7 +61,7 @@
       "rarity": "Gold Pass",
       "source": "Gold Pass Reward DD Imprisoned Duke Dragon Duke Legendary $9.99 USD",
       "set": "DragonScale",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/dragonscale-prince.png"
     },
     {
       "name": "Frost Prince",
@@ -71,7 +71,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Frost",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/frost-prince.png"
     },
     {
       "name": "Genie Prince",
@@ -81,7 +81,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Genie",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/genie-prince.png"
     },
     {
       "name": "Lava Prince",
@@ -91,7 +91,7 @@
       "rarity": "Gold Pass",
       "source": "Gold Pass Reward",
       "set": "Lava",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/lava-prince.png"
     },
     {
       "name": "Minion Cop",
@@ -101,7 +101,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Minion Cop",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/minion-cop.png"
     },
     {
       "name": "Minion General",
@@ -111,7 +111,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Minion General",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/minion-general.png"
     },
     {
       "name": "Minion Inventor",
@@ -121,7 +121,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Minion Inventor",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/minion-inventor.png"
     },
     {
       "name": "Nightmare Prince",
@@ -131,7 +131,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Nightmare",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/nightmare-prince.png"
     },
     {
       "name": "Ox Prince",
@@ -141,7 +141,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Ox",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/ox-prince.png"
     },
     {
       "name": "Prince Mysterio",
@@ -151,7 +151,7 @@
       "rarity": "Gold Pass",
       "source": "Gold Pass Reward",
       "set": "Mysterio",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/prince-mysterio.png"
     },
     {
       "name": "Skeleton Prince",
@@ -161,7 +161,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD DD Skeleton Duke Dragon Duke Legendary $9.99 USD",
       "set": "Skeleton",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/skeleton-prince.png"
     },
     {
       "name": "Snake Prince",
@@ -171,7 +171,7 @@
       "rarity": "Legendary",
       "source": "$9.99 USD",
       "set": "Snake",
-      "image": ""
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/snake-prince.png"
     }
   ]
 }
