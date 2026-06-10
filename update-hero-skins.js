@@ -18,6 +18,9 @@ const HERO_CODES = {
   MP: "Minion Prince"
 };
 
+const IMAGE_BASE =
+  "https://hoangquocvuong.github.io/coc-hero-images/";
+
 function cleanText(s) {
   return String(s || "")
     .replace(/\s+/g, " ")
@@ -27,8 +30,35 @@ function cleanText(s) {
     .trim();
 }
 
+function slugify(str) {
+  return String(str || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function heroFolder(hero) {
+  return String(hero || "")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
+function getImageUrl(hero, skinName) {
+  return (
+    IMAGE_BASE +
+    heroFolder(hero) +
+    "/" +
+    slugify(skinName) +
+    ".png"
+  );
+}
+
 function getMonthYear(text, index) {
-  const before = text.slice(Math.max(0, index - 200), index);
+  const before = text.slice(
+    Math.max(0, index - 200),
+    index
+  );
+
   const m = before.match(
     /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(20\d{2})/i
   );
@@ -42,11 +72,25 @@ function getMonthYear(text, index) {
 }
 
 function getSetFromName(name) {
-  const bad = ["King", "Queen", "Warden", "Champion", "Prince"];
-  const parts = name.split(" ").filter(Boolean);
-  const filtered = parts.filter(p => !bad.includes(p));
+  const bad = [
+    "King",
+    "Queen",
+    "Warden",
+    "Champion",
+    "Prince"
+  ];
 
-  return filtered.length ? filtered.join(" ") : "";
+  const parts = String(name || "")
+    .split(" ")
+    .filter(Boolean);
+
+  const filtered = parts.filter(
+    p => !bad.includes(p)
+  );
+
+  return filtered.length
+    ? filtered.join(" ")
+    : "";
 }
 
 async function main() {
@@ -54,7 +98,8 @@ async function main() {
 
   const res = await fetch(URL, {
     headers: {
-      "User-Agent": "Mozilla/5.0 cocbasepro-skin-scraper"
+      "User-Agent":
+        "Mozilla/5.0 cocbasepro-skin-scraper"
     }
   });
 
@@ -73,12 +118,6 @@ async function main() {
 
   const all = [];
 
-  /*
-    Pattern dạng:
-    BK Magic King Barbarian King Legendary 1,500 Gems
-    AQ Magic Queen Archer Queen Legendary$9.99 USD
-    RC Ghost Champion Royal Champion Gold Pass Gold Pass Reward
-  */
   const re =
     /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP)\b|\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+20\d{2}|\s*$)/gi;
 
@@ -89,16 +128,16 @@ async function main() {
     const skinName = cleanText(match[2]);
     const hero = cleanText(match[3]);
     const rarity = cleanText(match[4]);
+
     const source = cleanText(match[5])
       .replace(/^Image\s*/i, "")
       .replace(/\s*Image$/i, "");
 
     if (!HERO_CODES[code]) continue;
     if (!HERO_MAP[hero]) continue;
+    if (!skinName || skinName.length > 60) continue;
 
     const date = getMonthYear(text, match.index);
-
-    if (!skinName || skinName.length > 60) continue;
 
     all.push({
       name: skinName,
@@ -108,7 +147,7 @@ async function main() {
       rarity,
       source,
       set: getSetFromName(skinName),
-      image: ""
+      image: getImageUrl(hero, skinName)
     });
   }
 
@@ -117,7 +156,9 @@ async function main() {
 
   for (const item of all) {
     const key = `${item.hero}|${item.name}`;
+
     if (seen.has(key)) continue;
+
     seen.add(key);
     unique.push(item);
   }
@@ -136,12 +177,17 @@ async function main() {
     grouped[hero].sort((a, b) => {
       const ay = Number(a.year || 0);
       const by = Number(b.year || 0);
-      return by - ay || a.name.localeCompare(b.name);
+
+      return (
+        by - ay ||
+        a.name.localeCompare(b.name)
+      );
     });
 
     const fileData = {
       hero,
-      updated: new Date().toISOString().slice(0, 10),
+      updated:
+        new Date().toISOString().slice(0, 10),
       count: grouped[hero].length,
       skins: grouped[hero]
     };
@@ -152,21 +198,32 @@ async function main() {
       "utf8"
     );
 
-    console.log(hero + ":", grouped[hero].length, "skins");
+    console.log(
+      hero + ":",
+      grouped[hero].length,
+      "skins"
+    );
   }
 
   const index = {
-    updated: new Date().toISOString().slice(0, 10),
+    updated:
+      new Date().toISOString().slice(0, 10),
     total: unique.length,
     heroes: Object.keys(HERO_MAP).map(hero => ({
-      id: hero.toLowerCase().replace(/\s+/g, "_"),
+      id: hero
+        .toLowerCase()
+        .replace(/\s+/g, "_"),
       name: hero,
       file: HERO_MAP[hero],
       count: grouped[hero].length
     }))
   };
 
-  fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2), "utf8");
+  fs.writeFileSync(
+    "hero-skins.json",
+    JSON.stringify(index, null, 2),
+    "utf8"
+  );
 
   console.log("Total skins:", unique.length);
   console.log("Done.");
