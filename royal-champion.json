@@ -1,0 +1,467 @@
+{
+  "hero": "Royal Champion",
+  "updated": "2026-06-10",
+  "count": 46,
+  "skins": [
+    {
+      "name": "Anime Fury Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime Fury",
+      "image": ""
+    },
+    {
+      "name": "Dragonscale Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dragonscale",
+      "image": ""
+    },
+    {
+      "name": "Mirage Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Mirage",
+      "image": ""
+    },
+    {
+      "name": "Red Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Red",
+      "image": ""
+    },
+    {
+      "name": "Cursed Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Cursed",
+      "image": ""
+    },
+    {
+      "name": "Explorer Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Explorer",
+      "image": ""
+    },
+    {
+      "name": "Ice Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Ice",
+      "image": ""
+    },
+    {
+      "name": "Nomad Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Nomad",
+      "image": ""
+    },
+    {
+      "name": "Royal Ninja",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Royal Ninja",
+      "image": ""
+    },
+    {
+      "name": "Royal Officer",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Royal Officer",
+      "image": ""
+    },
+    {
+      "name": "Showtime Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Showtime",
+      "image": ""
+    },
+    {
+      "name": "Snake Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Snake",
+      "image": ""
+    },
+    {
+      "name": "Sniper Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Sniper",
+      "image": ""
+    },
+    {
+      "name": "The RoyalEST",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "The RoyalEST",
+      "image": ""
+    },
+    {
+      "name": "Yeti Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Yeti",
+      "image": ""
+    },
+    {
+      "name": "Anime Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Aug",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Anime",
+      "image": ""
+    },
+    {
+      "name": "Dragon Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Dragon",
+      "image": ""
+    },
+    {
+      "name": "Egypt Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Egypt",
+      "image": ""
+    },
+    {
+      "name": "Paladin Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Paladin",
+      "image": ""
+    },
+    {
+      "name": "Space Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Space",
+      "image": ""
+    },
+    {
+      "name": "Champions' Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Champions'",
+      "image": ""
+    },
+    {
+      "name": "Dark Ages Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD BM Armored Machine Battle Machine Standard Chest reward (current)",
+      "set": "Dark Ages",
+      "image": ""
+    },
+    {
+      "name": "Future Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Future",
+      "image": ""
+    },
+    {
+      "name": "Ghost Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Ghost",
+      "image": ""
+    },
+    {
+      "name": "Goblin Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Goblin",
+      "image": ""
+    },
+    {
+      "name": "Painter Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Painter",
+      "image": ""
+    },
+    {
+      "name": "Warrior Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Warrior",
+      "image": ""
+    },
+    {
+      "name": "Jolly Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Jolly",
+      "image": ""
+    },
+    {
+      "name": "Pirate Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Pirate",
+      "image": ""
+    },
+    {
+      "name": "Primal Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Primal",
+      "image": ""
+    },
+    {
+      "name": "Shadow Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Apr",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Shadow",
+      "image": ""
+    },
+    {
+      "name": "Summer Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Summer",
+      "image": ""
+    },
+    {
+      "name": "Gladiator Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Gladiator",
+      "image": ""
+    },
+    {
+      "name": "Jungle Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jungle",
+      "image": ""
+    },
+    {
+      "name": "Rogue Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Rogue",
+      "image": ""
+    },
+    {
+      "name": "Winter Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Winter",
+      "image": ""
+    },
+    {
+      "name": "Clash-A-Rama Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Clash-A-Rama",
+      "image": ""
+    },
+    {
+      "name": "Football Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Football",
+      "image": ""
+    },
+    {
+      "name": "Gingerbread Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Gingerbread",
+      "image": ""
+    },
+    {
+      "name": "League Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "2,000 League Medals",
+      "set": "League",
+      "image": ""
+    },
+    {
+      "name": "Magic Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Magic",
+      "image": ""
+    },
+    {
+      "name": "Party Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Party",
+      "image": ""
+    },
+    {
+      "name": "Pixel Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$4.99 USD approx",
+      "set": "Pixel",
+      "image": ""
+    },
+    {
+      "name": "Royal Screamstress",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Royal Screamstress",
+      "image": ""
+    },
+    {
+      "name": "Skeleton Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Skeleton",
+      "image": ""
+    },
+    {
+      "name": "Wild West Champion",
+      "hero": "Royal Champion",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Wild West",
+      "image": ""
+    }
+  ]
+}

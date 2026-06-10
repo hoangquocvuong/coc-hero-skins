@@ -1,0 +1,177 @@
+{
+  "hero": "Minion Prince",
+  "updated": "2026-06-10",
+  "count": 17,
+  "skins": [
+    {
+      "name": "Anime Fury Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD DD Anime Fury Duke Dragon Duke Gold Pass Gold Pass Reward",
+      "set": "Anime Fury",
+      "image": ""
+    },
+    {
+      "name": "Armored Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Armored",
+      "image": ""
+    },
+    {
+      "name": "Beatsmasher Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD DD Showmaster Duke Dragon Duke Legendary $9.99 USD",
+      "set": "Beatsmasher",
+      "image": ""
+    },
+    {
+      "name": "Clash-A-Rama Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Clash-A-Rama",
+      "image": ""
+    },
+    {
+      "name": "Cyclone Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Cyclone",
+      "image": ""
+    },
+    {
+      "name": "DragonScale Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward DD Imprisoned Duke Dragon Duke Legendary $9.99 USD",
+      "set": "DragonScale",
+      "image": ""
+    },
+    {
+      "name": "Frost Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Frost",
+      "image": ""
+    },
+    {
+      "name": "Genie Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Genie",
+      "image": ""
+    },
+    {
+      "name": "Lava Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Lava",
+      "image": ""
+    },
+    {
+      "name": "Minion Cop",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Minion Cop",
+      "image": ""
+    },
+    {
+      "name": "Minion General",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Minion General",
+      "image": ""
+    },
+    {
+      "name": "Minion Inventor",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Minion Inventor",
+      "image": ""
+    },
+    {
+      "name": "Nightmare Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Nightmare",
+      "image": ""
+    },
+    {
+      "name": "Ox Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Ox",
+      "image": ""
+    },
+    {
+      "name": "Prince Mysterio",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Mysterio",
+      "image": ""
+    },
+    {
+      "name": "Skeleton Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD DD Skeleton Duke Dragon Duke Legendary $9.99 USD",
+      "set": "Skeleton",
+      "image": ""
+    },
+    {
+      "name": "Snake Prince",
+      "hero": "Minion Prince",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Snake",
+      "image": ""
+    }
+  ]
+}

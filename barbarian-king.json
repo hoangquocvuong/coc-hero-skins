@@ -1,0 +1,647 @@
+{
+  "hero": "Barbarian King",
+  "updated": "2026-06-10",
+  "count": 64,
+  "skins": [
+    {
+      "name": "Anime Fury King",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime Fury",
+      "image": ""
+    },
+    {
+      "name": "Desert King",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Desert",
+      "image": ""
+    },
+    {
+      "name": "Dragonscale King",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dragonscale",
+      "image": ""
+    },
+    {
+      "name": "Monkey King",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Monkey",
+      "image": ""
+    },
+    {
+      "name": "Shadow Samurai",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Shadow Samurai",
+      "image": ""
+    },
+    {
+      "name": "Skeleton King Resurrected",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "Free (Community Event)",
+      "set": "Skeleton Resurrected",
+      "image": ""
+    },
+    {
+      "name": "Stringshredder King",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Stringshredder",
+      "image": ""
+    },
+    {
+      "name": "Awakened King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Awakened",
+      "image": ""
+    },
+    {
+      "name": "Barbarian Butcher",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Barbarian Butcher",
+      "image": ""
+    },
+    {
+      "name": "Berserker King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Berserker",
+      "image": ""
+    },
+    {
+      "name": "Bruiser King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Bruiser",
+      "image": ""
+    },
+    {
+      "name": "Clash-A-Rama King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Clash-A-Rama",
+      "image": ""
+    },
+    {
+      "name": "Combat King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Mar",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Combat",
+      "image": ""
+    },
+    {
+      "name": "Fire King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Fire",
+      "image": ""
+    },
+    {
+      "name": "Jelly King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Jelly",
+      "image": ""
+    },
+    {
+      "name": "King Cody",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Cody",
+      "image": ""
+    },
+    {
+      "name": "Renegade King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Renegade",
+      "image": ""
+    },
+    {
+      "name": "Samurai King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Samurai",
+      "image": ""
+    },
+    {
+      "name": "Snake King",
+      "hero": "Barbarian King",
+      "year": "2025",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Snake",
+      "image": ""
+    },
+    {
+      "name": "Anime King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime",
+      "image": ""
+    },
+    {
+      "name": "Barbarian Orc",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Barbarian Orc",
+      "image": ""
+    },
+    {
+      "name": "Clash Games King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Clash Games",
+      "image": ""
+    },
+    {
+      "name": "Dark Minion King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Dark Minion",
+      "image": ""
+    },
+    {
+      "name": "Dragon King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dragon",
+      "image": ""
+    },
+    {
+      "name": "Egypt King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Egypt",
+      "image": ""
+    },
+    {
+      "name": "Football King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Football",
+      "image": ""
+    },
+    {
+      "name": "Judgment King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Judgment",
+      "image": ""
+    },
+    {
+      "name": "King Haaland",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Haaland",
+      "image": ""
+    },
+    {
+      "name": "King of the North",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "of the North",
+      "image": ""
+    },
+    {
+      "name": "Robo King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Robo",
+      "image": ""
+    },
+    {
+      "name": "Space King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Space",
+      "image": ""
+    },
+    {
+      "name": "Super Squad King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "Squad Busters Pre-Regestration Reward (Free)",
+      "set": "Super Squad",
+      "image": ""
+    },
+    {
+      "name": "Wild West King",
+      "hero": "Barbarian King",
+      "year": "2024",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Wild West",
+      "image": ""
+    },
+    {
+      "name": "Beast King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "$9.99 USD",
+      "set": "Beast",
+      "image": ""
+    },
+    {
+      "name": "Chess King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Chess",
+      "image": ""
+    },
+    {
+      "name": "Dark Ages King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Dark Ages",
+      "image": ""
+    },
+    {
+      "name": "Future King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Future",
+      "image": ""
+    },
+    {
+      "name": "Ghost King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Ghost",
+      "image": ""
+    },
+    {
+      "name": "Gingerbread King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Gingerbread",
+      "image": ""
+    },
+    {
+      "name": "Goblin King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Goblin",
+      "image": ""
+    },
+    {
+      "name": "League King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "2,000 League Medals",
+      "set": "League",
+      "image": ""
+    },
+    {
+      "name": "Painter King",
+      "hero": "Barbarian King",
+      "year": "2023",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Painter",
+      "image": ""
+    },
+    {
+      "name": "Clash Fest King",
+      "hero": "Barbarian King",
+      "year": "2022",
+      "month": "Sep",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Clash Fest",
+      "image": ""
+    },
+    {
+      "name": "Ice King",
+      "hero": "Barbarian King",
+      "year": "2022",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Ice",
+      "image": ""
+    },
+    {
+      "name": "Lunar King",
+      "hero": "Barbarian King",
+      "year": "2022",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Lunar",
+      "image": ""
+    },
+    {
+      "name": "Magic King",
+      "hero": "Barbarian King",
+      "year": "2022",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Magic",
+      "image": ""
+    },
+    {
+      "name": "Pixel King",
+      "hero": "Barbarian King",
+      "year": "2022",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$4.99 USD approx.",
+      "set": "Pixel",
+      "image": ""
+    },
+    {
+      "name": "Shadow King",
+      "hero": "Barbarian King",
+      "year": "2022",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Shadow",
+      "image": ""
+    },
+    {
+      "name": "Summer King",
+      "hero": "Barbarian King",
+      "year": "2022",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "1,500 Gems",
+      "set": "Summer",
+      "image": ""
+    },
+    {
+      "name": "Beat King",
+      "hero": "Barbarian King",
+      "year": "2021",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Beat",
+      "image": ""
+    },
+    {
+      "name": "Fierce King",
+      "hero": "Barbarian King",
+      "year": "2021",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "$9.99 USD",
+      "set": "Fierce",
+      "image": ""
+    },
+    {
+      "name": "Golem King",
+      "hero": "Barbarian King",
+      "year": "2021",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Golem",
+      "image": ""
+    },
+    {
+      "name": "Jungle King",
+      "hero": "Barbarian King",
+      "year": "2021",
+      "month": "Aug",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jungle",
+      "image": ""
+    },
+    {
+      "name": "Rogue King",
+      "hero": "Barbarian King",
+      "year": "2021",
+      "month": "Apr",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Rogue",
+      "image": ""
+    },
+    {
+      "name": "Warrior King",
+      "hero": "Barbarian King",
+      "year": "2021",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD (Limited Time)",
+      "set": "Warrior",
+      "image": ""
+    },
+    {
+      "name": "Champion King",
+      "hero": "Barbarian King",
+      "year": "2020",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "$9.99 USD (Limited Time)",
+      "set": "",
+      "image": ""
+    },
+    {
+      "name": "Clockwork King",
+      "hero": "Barbarian King",
+      "year": "2020",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Clockwork",
+      "image": ""
+    },
+    {
+      "name": "Jolly King",
+      "hero": "Barbarian King",
+      "year": "2020",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jolly",
+      "image": ""
+    },
+    {
+      "name": "Party King",
+      "hero": "Barbarian King",
+      "year": "2020",
+      "month": "Sep",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Party",
+      "image": ""
+    },
+    {
+      "name": "Pirate King",
+      "hero": "Barbarian King",
+      "year": "2020",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Pirate",
+      "image": ""
+    },
+    {
+      "name": "Primal King",
+      "hero": "Barbarian King",
+      "year": "2020",
+      "month": "Mar",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Primal",
+      "image": ""
+    },
+    {
+      "name": "Gladiator King",
+      "hero": "Barbarian King",
+      "year": "2019",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems © 2026 The Village Vault. All rights reserved. Privacy Policy Terms Disclaimer This content is not affiliated with, endorsed, sponsored, or specifically approved by Supercell and Supercell is not responsible for it. For more information see Supercell's Fan Content Policy: www.supercell.com/fan-content-policy Home Tracker Posts Wiki",
+      "set": "Gladiator",
+      "image": ""
+    },
+    {
+      "name": "P.E.K.K.A King",
+      "hero": "Barbarian King",
+      "year": "2019",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "P.E.K.K.A",
+      "image": ""
+    },
+    {
+      "name": "Skeleton King",
+      "hero": "Barbarian King",
+      "year": "2019",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Skeleton",
+      "image": ""
+    }
+  ]
+}

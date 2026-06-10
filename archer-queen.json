@@ -1,0 +1,597 @@
+{
+  "hero": "Archer Queen",
+  "updated": "2026-06-10",
+  "count": 59,
+  "skins": [
+    {
+      "name": "Anime Fury Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime Fury",
+      "image": ""
+    },
+    {
+      "name": "Bassbow Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "Apr",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Bassbow",
+      "image": ""
+    },
+    {
+      "name": "Dragonscale Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dragonscale",
+      "image": ""
+    },
+    {
+      "name": "Phantom Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Phantom",
+      "image": ""
+    },
+    {
+      "name": "Queen Of the Dunes",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Of the Dunes",
+      "image": ""
+    },
+    {
+      "name": "Skeleton Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Skeleton",
+      "image": ""
+    },
+    {
+      "name": "Archer Hunter",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Archer Hunter",
+      "image": ""
+    },
+    {
+      "name": "Blizzard Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Blizzard",
+      "image": ""
+    },
+    {
+      "name": "Brutality Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Brutality",
+      "image": ""
+    },
+    {
+      "name": "Clash-A-Rama Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Clash-A-Rama",
+      "image": ""
+    },
+    {
+      "name": "Fire Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Fire",
+      "image": ""
+    },
+    {
+      "name": "Fury Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Fury",
+      "image": ""
+    },
+    {
+      "name": "Kyudo Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Kyudo",
+      "image": ""
+    },
+    {
+      "name": "P.E.Q.Q.A Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "P.E.Q.Q.A",
+      "image": ""
+    },
+    {
+      "name": "Queen Fatale",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Fatale",
+      "image": ""
+    },
+    {
+      "name": "Quickfire Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Quickfire",
+      "image": ""
+    },
+    {
+      "name": "Renegade Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Renegade",
+      "image": ""
+    },
+    {
+      "name": "Snake Queen",
+      "hero": "Archer Queen",
+      "year": "2025",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Snake",
+      "image": ""
+    },
+    {
+      "name": "Anime Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime",
+      "image": ""
+    },
+    {
+      "name": "Archer Satyr",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Archer Satyr",
+      "image": ""
+    },
+    {
+      "name": "Clash Games Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Clash Games",
+      "image": ""
+    },
+    {
+      "name": "Dark Minion Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Dark Minion",
+      "image": ""
+    },
+    {
+      "name": "Dragon Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dragon",
+      "image": ""
+    },
+    {
+      "name": "Egypt Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Egypt",
+      "image": ""
+    },
+    {
+      "name": "Justice Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Justice",
+      "image": ""
+    },
+    {
+      "name": "Puppet Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward BM Steampunk Machine Battle Machine Standard $7.99 USD BC Boat Copter Battle Copter Standard $7.99 USD",
+      "set": "Puppet",
+      "image": ""
+    },
+    {
+      "name": "Queen of the North",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD BM Battle Machine Of the North Battle Machine Standard $7.99 USD",
+      "set": "of the North",
+      "image": ""
+    },
+    {
+      "name": "Space Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Mar",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Space",
+      "image": ""
+    },
+    {
+      "name": "Wild West Queen",
+      "hero": "Archer Queen",
+      "year": "2024",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Wild West",
+      "image": ""
+    },
+    {
+      "name": "Chess Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Sep",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Chess",
+      "image": ""
+    },
+    {
+      "name": "Dark Ages Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dark Ages",
+      "image": ""
+    },
+    {
+      "name": "Future Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Future",
+      "image": ""
+    },
+    {
+      "name": "Ghost Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "4650 Mashup Medals",
+      "set": "Ghost",
+      "image": ""
+    },
+    {
+      "name": "Gingerbread Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Gingerbread",
+      "image": ""
+    },
+    {
+      "name": "Goblin Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Goblin",
+      "image": ""
+    },
+    {
+      "name": "Heart Hunter Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Heart Hunter",
+      "image": ""
+    },
+    {
+      "name": "Jolly Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jolly",
+      "image": ""
+    },
+    {
+      "name": "League Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "2,000 League Medals",
+      "set": "League",
+      "image": ""
+    },
+    {
+      "name": "Lunar Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Lunar",
+      "image": ""
+    },
+    {
+      "name": "Painter Queen",
+      "hero": "Archer Queen",
+      "year": "2023",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Painter",
+      "image": ""
+    },
+    {
+      "name": "Magic Queen",
+      "hero": "Archer Queen",
+      "year": "2022",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Magic",
+      "image": ""
+    },
+    {
+      "name": "Miner Queen",
+      "hero": "Archer Queen",
+      "year": "2022",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Miner",
+      "image": ""
+    },
+    {
+      "name": "Pixel Queen",
+      "hero": "Archer Queen",
+      "year": "2022",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$4.99 USD approx",
+      "set": "Pixel",
+      "image": ""
+    },
+    {
+      "name": "Shadow Queen",
+      "hero": "Archer Queen",
+      "year": "2022",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Shadow",
+      "image": ""
+    },
+    {
+      "name": "Spooky Queen",
+      "hero": "Archer Queen",
+      "year": "2022",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Spooky",
+      "image": ""
+    },
+    {
+      "name": "Summer Queen",
+      "hero": "Archer Queen",
+      "year": "2022",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Summer",
+      "image": ""
+    },
+    {
+      "name": "Champion Queen",
+      "hero": "Archer Queen",
+      "year": "2021",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "",
+      "image": ""
+    },
+    {
+      "name": "Jungle Queen",
+      "hero": "Archer Queen",
+      "year": "2021",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jungle",
+      "image": ""
+    },
+    {
+      "name": "Party Queen",
+      "hero": "Archer Queen",
+      "year": "2021",
+      "month": "Sep",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Party",
+      "image": ""
+    },
+    {
+      "name": "Rouge Queen",
+      "hero": "Archer Queen",
+      "year": "2021",
+      "month": "Mar",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems (Gold Pass Reward)",
+      "set": "Rouge",
+      "image": ""
+    },
+    {
+      "name": "Clockwork Queen",
+      "hero": "Archer Queen",
+      "year": "2020",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Clockwork",
+      "image": ""
+    },
+    {
+      "name": "Pirate Queen",
+      "hero": "Archer Queen",
+      "year": "2020",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Pirate",
+      "image": ""
+    },
+    {
+      "name": "Primal Queen",
+      "hero": "Archer Queen",
+      "year": "2020",
+      "month": "Apr",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Primal",
+      "image": ""
+    },
+    {
+      "name": "Warrior Queen",
+      "hero": "Archer Queen",
+      "year": "2020",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Warrior",
+      "image": ""
+    },
+    {
+      "name": "Autumn Queen",
+      "hero": "Archer Queen",
+      "year": "2019",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Autumn",
+      "image": ""
+    },
+    {
+      "name": "Gladiator Queen",
+      "hero": "Archer Queen",
+      "year": "2019",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Gladiator",
+      "image": ""
+    },
+    {
+      "name": "Ice Queen",
+      "hero": "Archer Queen",
+      "year": "2019",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Ice",
+      "image": ""
+    },
+    {
+      "name": "Valkyrie Queen",
+      "hero": "Archer Queen",
+      "year": "2019",
+      "month": "Aug",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Valkyrie",
+      "image": ""
+    },
+    {
+      "name": "Football Queen",
+      "hero": "Archer Queen",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "4650 Medals",
+      "set": "Football",
+      "image": ""
+    }
+  ]
+}

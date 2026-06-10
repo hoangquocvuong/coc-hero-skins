@@ -1,0 +1,507 @@
+{
+  "hero": "Grand Warden",
+  "updated": "2026-06-10",
+  "count": 50,
+  "skins": [
+    {
+      "name": "Anime Fury Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime Fury",
+      "image": ""
+    },
+    {
+      "name": "Dragonscale Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dragonscale",
+      "image": ""
+    },
+    {
+      "name": "Grand Sorcerer",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Grand Sorcerer",
+      "image": ""
+    },
+    {
+      "name": "Keystriker Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Keystriker",
+      "image": ""
+    },
+    {
+      "name": "River Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "River",
+      "image": ""
+    },
+    {
+      "name": "Clash-A-Rama Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Clash-A-Rama",
+      "image": ""
+    },
+    {
+      "name": "Darkness Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Darkness",
+      "image": ""
+    },
+    {
+      "name": "Eternal Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Eternal",
+      "image": ""
+    },
+    {
+      "name": "Grand Doctor",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Grand Doctor",
+      "image": ""
+    },
+    {
+      "name": "Grand Godfather",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Grand Godfather",
+      "image": ""
+    },
+    {
+      "name": "Grand Monk",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Grand Monk",
+      "image": ""
+    },
+    {
+      "name": "Grand Warlock",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "Gold Pass Reward",
+      "set": "Grand Warlock",
+      "image": ""
+    },
+    {
+      "name": "Ice Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Ice",
+      "image": ""
+    },
+    {
+      "name": "Ivan Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Ivan",
+      "image": ""
+    },
+    {
+      "name": "Jetpack Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Jetpack",
+      "image": ""
+    },
+    {
+      "name": "Shaman Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Shaman",
+      "image": ""
+    },
+    {
+      "name": "Snake Warden",
+      "hero": "Grand Warden",
+      "year": "2025",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Snake",
+      "image": ""
+    },
+    {
+      "name": "Anime Warden",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime",
+      "image": ""
+    },
+    {
+      "name": "Clash Games Warden",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "$9.99 USD BC SteamPunk Copter Battle Copter Standard $7.99 USD",
+      "set": "Clash Games",
+      "image": ""
+    },
+    {
+      "name": "Dark Minion Warden",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dark Minion",
+      "image": ""
+    },
+    {
+      "name": "Dragon Warden",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "4650 Medals",
+      "set": "Dragon",
+      "image": ""
+    },
+    {
+      "name": "Egypt Warden",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Apr",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Egypt",
+      "image": ""
+    },
+    {
+      "name": "Grand Dwarf",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "Gold Pass Reward",
+      "set": "Grand Dwarf",
+      "image": ""
+    },
+    {
+      "name": "Grand Judge",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Grand Judge",
+      "image": ""
+    },
+    {
+      "name": "Space Warden",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Space",
+      "image": ""
+    },
+    {
+      "name": "Wild West Warden",
+      "hero": "Grand Warden",
+      "year": "2024",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Wild West",
+      "image": ""
+    },
+    {
+      "name": "Dark Ages Warden",
+      "hero": "Grand Warden",
+      "year": "2023",
+      "month": "Apr",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Dark Ages",
+      "image": ""
+    },
+    {
+      "name": "Future Warden",
+      "hero": "Grand Warden",
+      "year": "2023",
+      "month": "Aug",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Future",
+      "image": ""
+    },
+    {
+      "name": "Ghost Warden",
+      "hero": "Grand Warden",
+      "year": "2023",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Ghost",
+      "image": ""
+    },
+    {
+      "name": "Gingerbread Warden",
+      "hero": "Grand Warden",
+      "year": "2023",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Gingerbread",
+      "image": ""
+    },
+    {
+      "name": "Painter Warden",
+      "hero": "Grand Warden",
+      "year": "2023",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Painter",
+      "image": ""
+    },
+    {
+      "name": "Champion Warden",
+      "hero": "Grand Warden",
+      "year": "2022",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "",
+      "image": ""
+    },
+    {
+      "name": "Magic Warden",
+      "hero": "Grand Warden",
+      "year": "2022",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Magic",
+      "image": ""
+    },
+    {
+      "name": "Pixel Warden",
+      "hero": "Grand Warden",
+      "year": "2022",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$4.99 USD approx",
+      "set": "Pixel",
+      "image": ""
+    },
+    {
+      "name": "Shadow Warden",
+      "hero": "Grand Warden",
+      "year": "2022",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Shadow",
+      "image": ""
+    },
+    {
+      "name": "Summer Warden",
+      "hero": "Grand Warden",
+      "year": "2022",
+      "month": "Jul",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Summer",
+      "image": ""
+    },
+    {
+      "name": "Warrior Warden",
+      "hero": "Grand Warden",
+      "year": "2022",
+      "month": "Mar",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Warrior",
+      "image": ""
+    },
+    {
+      "name": "Jolly Warden",
+      "hero": "Grand Warden",
+      "year": "2021",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jolly",
+      "image": ""
+    },
+    {
+      "name": "Jungle Warden",
+      "hero": "Grand Warden",
+      "year": "2021",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jungle",
+      "image": ""
+    },
+    {
+      "name": "Warden Master",
+      "hero": "Grand Warden",
+      "year": "2021",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Master",
+      "image": ""
+    },
+    {
+      "name": "Warden of the North",
+      "hero": "Grand Warden",
+      "year": "2021",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "of the North",
+      "image": ""
+    },
+    {
+      "name": "Clockwork Warden",
+      "hero": "Grand Warden",
+      "year": "2020",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Clockwork",
+      "image": ""
+    },
+    {
+      "name": "Gladiator Warden",
+      "hero": "Grand Warden",
+      "year": "2020",
+      "month": "Aug",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Gladiator",
+      "image": ""
+    },
+    {
+      "name": "Pirate Warden",
+      "hero": "Grand Warden",
+      "year": "2020",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Pirate",
+      "image": ""
+    },
+    {
+      "name": "Primal Warden",
+      "hero": "Grand Warden",
+      "year": "2020",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Primal",
+      "image": ""
+    },
+    {
+      "name": "Party Warden",
+      "hero": "Grand Warden",
+      "year": "2019",
+      "month": "Sep",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Party",
+      "image": ""
+    },
+    {
+      "name": "Football Warden",
+      "hero": "Grand Warden",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Football",
+      "image": ""
+    },
+    {
+      "name": "Goblin Warden",
+      "hero": "Grand Warden",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Goblin",
+      "image": ""
+    },
+    {
+      "name": "League Warden",
+      "hero": "Grand Warden",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "2,000 League Medals",
+      "set": "League",
+      "image": ""
+    },
+    {
+      "name": "Skeleton Warden",
+      "hero": "Grand Warden",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Skeleton",
+      "image": ""
+    }
+  ]
+}
