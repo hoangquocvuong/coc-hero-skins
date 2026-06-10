@@ -9,27 +9,43 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-hero-skins
+  cancel-in-progress: true
+
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Update Hero Skins
+      - name: Run update script
         run: node update-hero-skins.js
 
-      - name: Commit Changes
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           git add .
 
-          git diff --cached --quiet || git commit -m "Auto update hero skins"
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
 
-          git push
+          git commit -m "Auto update hero skins"
+
+          git pull --rebase origin main
+
+          git push origin HEAD:main
