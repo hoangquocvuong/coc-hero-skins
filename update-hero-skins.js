@@ -2,13 +2,15 @@ const fs = require("fs");
 
 const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
 
+const IMAGE_BASE =
+  "https://hoangquocvuong.github.io/coc-hero-images/";
+
 const HERO_MAP = {
   "Barbarian King": "barbarian-king.json",
   "Archer Queen": "archer-queen.json",
   "Grand Warden": "grand-warden.json",
   "Royal Champion": "royal-champion.json",
-  "Minion Prince": "minion-prince.json",
-  "Dragon Duke": "dragon-duke.json"
+  "Minion Prince": "minion-prince.json"
 };
 
 const HERO_CODES = {
@@ -16,12 +18,8 @@ const HERO_CODES = {
   AQ: "Archer Queen",
   GW: "Grand Warden",
   RC: "Royal Champion",
-  MP: "Minion Prince",
-  DD: "Dragon Duke"
+  MP: "Minion Prince"
 };
-
-const IMAGE_BASE =
-  "https://hoangquocvuong.github.io/coc-hero-images/";
 
 function cleanText(s) {
   return String(s || "")
@@ -121,7 +119,7 @@ async function main() {
   const all = [];
 
   const re =
-    /\b(BK|AQ|GW|RC|MP|DD)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince|Dragon Duke)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP|DD)\b|\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+20\d{2}|\s*$)/gi;
+    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP)\b|\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+20\d{2}|\s*$)/gi;
 
   let match;
 
@@ -157,7 +155,10 @@ async function main() {
   const seen = new Set();
 
   for (const item of all) {
-    const key = `${item.hero}|${item.name}`;
+    const key =
+      item.hero.toLowerCase() +
+      "|" +
+      item.name.toLowerCase();
 
     if (seen.has(key)) continue;
 
