@@ -5,12 +5,21 @@ const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
 const IMAGE_BASE =
   "https://hoangquocvuong.github.io/coc-hero-images/";
 
-const HERO_MAP = {
+const AUTO_HERO_MAP = {
   "Barbarian King": "barbarian-king.json",
   "Archer Queen": "archer-queen.json",
   "Grand Warden": "grand-warden.json",
   "Royal Champion": "royal-champion.json",
   "Minion Prince": "minion-prince.json"
+};
+
+const CUSTOM_HERO_MAP = {
+  "Dragon Duke": "dragon-duke.json"
+};
+
+const HERO_MAP = {
+  ...AUTO_HERO_MAP,
+  ...CUSTOM_HERO_MAP
 };
 
 const HERO_CODES = {
@@ -77,7 +86,8 @@ function getSetFromName(name) {
     "Queen",
     "Warden",
     "Champion",
-    "Prince"
+    "Prince",
+    "Duke"
   ];
 
   const parts = String(name || "")
@@ -91,6 +101,38 @@ function getSetFromName(name) {
   return filtered.length
     ? filtered.join(" ")
     : "";
+}
+
+function normalizeSkinImage(item) {
+  return {
+    ...item,
+    image: item.image || getImageUrl(item.hero, item.name)
+  };
+}
+
+function loadCustomHero(hero, file) {
+  if (!fs.existsSync(file)) {
+    console.log(hero + ": custom file not found");
+    return [];
+  }
+
+  try {
+    const data = JSON.parse(
+      fs.readFileSync(file, "utf8")
+    );
+
+    const skins = Array.isArray(data.skins)
+      ? data.skins.map(normalizeSkinImage)
+      : [];
+
+    console.log(hero + ":", skins.length, "custom skins");
+
+    return skins;
+
+  } catch (err) {
+    console.log(hero + ": failed to read custom file", err.message);
+    return [];
+  }
 }
 
 async function main() {
@@ -134,7 +176,7 @@ async function main() {
       .replace(/\s*Image$/i, "");
 
     if (!HERO_CODES[code]) continue;
-    if (!HERO_MAP[hero]) continue;
+    if (!AUTO_HERO_MAP[hero]) continue;
     if (!skinName || skinName.length > 60) continue;
 
     const date = getMonthYear(text, match.index);
@@ -173,8 +215,19 @@ async function main() {
   });
 
   unique.forEach(item => {
-    grouped[item.hero].push(item);
+    if (grouped[item.hero]) {
+      grouped[item.hero].push(item);
+    }
   });
+
+  for (const hero of Object.keys(CUSTOM_HERO_MAP)) {
+    grouped[hero] = loadCustomHero(
+      hero,
+      CUSTOM_HERO_MAP[hero]
+    );
+  }
+
+  let total = 0;
 
   for (const hero of Object.keys(grouped)) {
     grouped[hero].sort((a, b) => {
@@ -187,19 +240,23 @@ async function main() {
       );
     });
 
-    const fileData = {
-      hero,
-      updated:
-        new Date().toISOString().slice(0, 10),
-      count: grouped[hero].length,
-      skins: grouped[hero]
-    };
+    total += grouped[hero].length;
 
-    fs.writeFileSync(
-      HERO_MAP[hero],
-      JSON.stringify(fileData, null, 2),
-      "utf8"
-    );
+    if (AUTO_HERO_MAP[hero]) {
+      const fileData = {
+        hero,
+        updated:
+          new Date().toISOString().slice(0, 10),
+        count: grouped[hero].length,
+        skins: grouped[hero]
+      };
+
+      fs.writeFileSync(
+        AUTO_HERO_MAP[hero],
+        JSON.stringify(fileData, null, 2),
+        "utf8"
+      );
+    }
 
     console.log(
       hero + ":",
@@ -211,7 +268,7 @@ async function main() {
   const index = {
     updated:
       new Date().toISOString().slice(0, 10),
-    total: unique.length,
+    total,
     heroes: Object.keys(HERO_MAP).map(hero => ({
       id: hero
         .toLowerCase()
@@ -228,7 +285,7 @@ async function main() {
     "utf8"
   );
 
-  console.log("Total skins:", unique.length);
+  console.log("Total skins:", total);
   console.log("Done.");
 }
 
