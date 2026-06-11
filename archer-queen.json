@@ -34,6 +34,16 @@
       "image": "https://hoangquocvuong.github.io/coc-hero-images/archer-queen/dragonscale-queen.png"
     },
     {
+      "name": "Football Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "4650 Medals",
+      "set": "Football",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/archer-queen/football-queen.png"
+    },
+    {
       "name": "Phantom Queen",
       "hero": "Archer Queen",
       "year": "2026",
@@ -582,16 +592,6 @@
       "source": "1,500 Gems",
       "set": "Valkyrie",
       "image": "https://hoangquocvuong.github.io/coc-hero-images/archer-queen/valkyrie-queen.png"
-    },
-    {
-      "name": "Football Queen",
-      "hero": "Archer Queen",
-      "year": "",
-      "month": "",
-      "rarity": "Legendary",
-      "source": "4650 Medals",
-      "set": "Football",
-      "image": "https://hoangquocvuong.github.io/coc-hero-images/archer-queen/football-queen.png"
     }
   ]
 }

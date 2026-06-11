@@ -103,10 +103,22 @@ function getSetFromName(name) {
     : "";
 }
 
-function normalizeSkinImage(item) {
+function normalizeSkin(item) {
+  const currentYear =
+    new Date().getFullYear().toString();
+
+  const name = cleanText(item.name);
+  const hero = cleanText(item.hero);
+
   return {
-    ...item,
-    image: item.image || getImageUrl(item.hero, item.name)
+    name,
+    hero,
+    year: String(item.year || currentYear),
+    month: String(item.month || ""),
+    rarity: cleanText(item.rarity || "Legendary"),
+    source: cleanText(item.source || ""),
+    set: cleanText(item.set || getSetFromName(name)),
+    image: item.image || getImageUrl(hero, name)
   };
 }
 
@@ -122,8 +134,22 @@ function loadCustomHero(hero, file) {
     );
 
     const skins = Array.isArray(data.skins)
-      ? data.skins.map(normalizeSkinImage)
+      ? data.skins.map(normalizeSkin)
       : [];
+
+    const fileData = {
+      hero,
+      updated:
+        new Date().toISOString().slice(0, 10),
+      count: skins.length,
+      skins
+    };
+
+    fs.writeFileSync(
+      file,
+      JSON.stringify(fileData, null, 2),
+      "utf8"
+    );
 
     console.log(hero + ":", skins.length, "custom skins");
 
@@ -181,7 +207,7 @@ async function main() {
 
     const date = getMonthYear(text, match.index);
 
-    all.push({
+    all.push(normalizeSkin({
       name: skinName,
       hero,
       year: date.year,
@@ -190,7 +216,7 @@ async function main() {
       source,
       set: getSetFromName(skinName),
       image: getImageUrl(hero, skinName)
-    });
+    }));
   }
 
   const unique = [];
@@ -242,21 +268,19 @@ async function main() {
 
     total += grouped[hero].length;
 
-    if (AUTO_HERO_MAP[hero]) {
-      const fileData = {
-        hero,
-        updated:
-          new Date().toISOString().slice(0, 10),
-        count: grouped[hero].length,
-        skins: grouped[hero]
-      };
+    const fileData = {
+      hero,
+      updated:
+        new Date().toISOString().slice(0, 10),
+      count: grouped[hero].length,
+      skins: grouped[hero]
+    };
 
-      fs.writeFileSync(
-        AUTO_HERO_MAP[hero],
-        JSON.stringify(fileData, null, 2),
-        "utf8"
-      );
-    }
+    fs.writeFileSync(
+      HERO_MAP[hero],
+      JSON.stringify(fileData, null, 2),
+      "utf8"
+    );
 
     console.log(
       hero + ":",

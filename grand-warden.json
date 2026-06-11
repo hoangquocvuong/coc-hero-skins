@@ -24,6 +24,26 @@
       "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/dragonscale-warden.png"
     },
     {
+      "name": "Football Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Football",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/football-warden.png"
+    },
+    {
+      "name": "Goblin Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Goblin",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/goblin-warden.png"
+    },
+    {
       "name": "Grand Sorcerer",
       "hero": "Grand Warden",
       "year": "2026",
@@ -44,6 +64,16 @@
       "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/keystriker-warden.png"
     },
     {
+      "name": "League Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "2,000 League Medals",
+      "set": "League",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/league-warden.png"
+    },
+    {
       "name": "River Warden",
       "hero": "Grand Warden",
       "year": "2026",
@@ -52,6 +82,16 @@
       "source": "$9.99 USD",
       "set": "River",
       "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/river-warden.png"
+    },
+    {
+      "name": "Skeleton Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Skeleton",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/skeleton-warden.png"
     },
     {
       "name": "Clash-A-Rama Warden",
@@ -462,46 +502,6 @@
       "source": "1,500 Gems",
       "set": "Party",
       "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/party-warden.png"
-    },
-    {
-      "name": "Football Warden",
-      "hero": "Grand Warden",
-      "year": "",
-      "month": "",
-      "rarity": "Legendary",
-      "source": "$9.99 USD",
-      "set": "Football",
-      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/football-warden.png"
-    },
-    {
-      "name": "Goblin Warden",
-      "hero": "Grand Warden",
-      "year": "",
-      "month": "",
-      "rarity": "Legendary",
-      "source": "$9.99 USD",
-      "set": "Goblin",
-      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/goblin-warden.png"
-    },
-    {
-      "name": "League Warden",
-      "hero": "Grand Warden",
-      "year": "",
-      "month": "",
-      "rarity": "Legendary",
-      "source": "2,000 League Medals",
-      "set": "League",
-      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/league-warden.png"
-    },
-    {
-      "name": "Skeleton Warden",
-      "hero": "Grand Warden",
-      "year": "",
-      "month": "",
-      "rarity": "Gold Pass",
-      "source": "Gold Pass Reward",
-      "set": "Skeleton",
-      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/skeleton-warden.png"
     }
   ]
 }
