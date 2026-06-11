@@ -1,0 +1,47 @@
+{
+  "hero": "Dragon Duke",
+  "updated": "2026-06-11",
+  "count": 4,
+  "skins": [
+    {
+      "name": "Anime Fury Duke",
+      "hero": "Dragon Duke",
+      "year": "",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Anime Fury Duke",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/dragon-duke/anime-fury-duke.png"
+    },
+    {
+      "name": "Imprisoned Duke",
+      "hero": "Dragon Duke",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Imprisoned Duke",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/dragon-duke/imprisoned-duke.png"
+    },
+    {
+      "name": "Showmaster Duke",
+      "hero": "Dragon Duke",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Showmaster Duke",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/dragon-duke/showmaster-duke.png"
+    },
+    {
+      "name": "Skeleton Duke",
+      "hero": "Dragon Duke",
+      "year": "",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Skeleton Duke",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/dragon-duke/skeleton-duke.png"
+    }
+  ]
+}

@@ -7,7 +7,8 @@ const HERO_MAP = {
   "Archer Queen": "archer-queen.json",
   "Grand Warden": "grand-warden.json",
   "Royal Champion": "royal-champion.json",
-  "Minion Prince": "minion-prince.json"
+  "Minion Prince": "minion-prince.json",
+  "Dragon Duke": "dragon-duke.json"
 };
 
 const HERO_CODES = {
@@ -15,7 +16,8 @@ const HERO_CODES = {
   AQ: "Archer Queen",
   GW: "Grand Warden",
   RC: "Royal Champion",
-  MP: "Minion Prince"
+  MP: "Minion Prince",
+  DD: "Dragon Duke"
 };
 
 const IMAGE_BASE =
@@ -119,7 +121,7 @@ async function main() {
   const all = [];
 
   const re =
-    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP)\b|\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+20\d{2}|\s*$)/gi;
+    /\b(BK|AQ|GW|RC|MP|DD)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince|Dragon Duke)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP|DD)\b|\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+20\d{2}|\s*$)/gi;
 
   let match;
 
