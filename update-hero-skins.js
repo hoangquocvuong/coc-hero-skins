@@ -5,38 +5,46 @@ const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
 const IMAGE_BASE =
   "https://hoangquocvuong.github.io/coc-hero-images/";
 
-const AUTO_HERO_MAP = {
+/* =========================
+   HERO CONFIG
+========================= */
+
+const HERO_MAP = {
   "Barbarian King": "barbarian-king.json",
   "Archer Queen": "archer-queen.json",
   "Grand Warden": "grand-warden.json",
   "Royal Champion": "royal-champion.json",
-  "Minion Prince": "minion-prince.json"
-};
-
-const CUSTOM_HERO_MAP = {
+  "Minion Prince": "minion-prince.json",
   "Dragon Duke": "dragon-duke.json"
 };
 
-const HERO_MAP = {
-  ...AUTO_HERO_MAP,
-  ...CUSTOM_HERO_MAP
-};
+const HERO_KEYS = Object.keys(HERO_MAP);
 
-const HERO_CODES = {
-  BK: "Barbarian King",
-  AQ: "Archer Queen",
-  GW: "Grand Warden",
-  RC: "Royal Champion",
-  MP: "Minion Prince"
-};
+/* =========================
+   UTILS
+========================= */
 
 function cleanText(s) {
   return String(s || "")
+    .replace(/\u00A0/g, " ")
     .replace(/\s+/g, " ")
     .replace(/&amp;/g, "&")
     .replace(/&#x27;/g, "'")
     .replace(/&quot;/g, '"')
     .trim();
+}
+
+function normalizeHero(hero) {
+  return cleanText(hero)
+    .toLowerCase();
+}
+
+function findHero(realHero) {
+  const h = normalizeHero(realHero);
+
+  return HERO_KEYS.find(k =>
+    k.toLowerCase() === h
+  );
 }
 
 function slugify(str) {
@@ -62,112 +70,14 @@ function getImageUrl(hero, skinName) {
   );
 }
 
-function getMonthYear(text, index) {
-  const before = text.slice(
-    Math.max(0, index - 200),
-    index
-  );
+/* =========================
+   FETCH
+========================= */
 
-  const m = before.match(
-    /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(20\d{2})/i
-  );
-
-  if (!m) return { month: "", year: "" };
-
-  return {
-    month: m[1],
-    year: m[2]
-  };
-}
-
-function getSetFromName(name) {
-  const bad = [
-    "King",
-    "Queen",
-    "Warden",
-    "Champion",
-    "Prince",
-    "Duke"
-  ];
-
-  const parts = String(name || "")
-    .split(" ")
-    .filter(Boolean);
-
-  const filtered = parts.filter(
-    p => !bad.includes(p)
-  );
-
-  return filtered.length
-    ? filtered.join(" ")
-    : "";
-}
-
-function normalizeSkin(item) {
-  const currentYear =
-    new Date().getFullYear().toString();
-
-  const name = cleanText(item.name);
-  const hero = cleanText(item.hero);
-
-  return {
-    name,
-    hero,
-    year: String(item.year || currentYear),
-    month: String(item.month || ""),
-    rarity: cleanText(item.rarity || "Legendary"),
-    source: cleanText(item.source || ""),
-    set: cleanText(item.set || getSetFromName(name)),
-    image: item.image || getImageUrl(hero, name)
-  };
-}
-
-function loadCustomHero(hero, file) {
-  if (!fs.existsSync(file)) {
-    console.log(hero + ": custom file not found");
-    return [];
-  }
-
-  try {
-    const data = JSON.parse(
-      fs.readFileSync(file, "utf8")
-    );
-
-    const skins = Array.isArray(data.skins)
-      ? data.skins.map(normalizeSkin)
-      : [];
-
-    const fileData = {
-      hero,
-      updated:
-        new Date().toISOString().slice(0, 10),
-      count: skins.length,
-      skins
-    };
-
-    fs.writeFileSync(
-      file,
-      JSON.stringify(fileData, null, 2),
-      "utf8"
-    );
-
-    console.log(hero + ":", skins.length, "custom skins");
-
-    return skins;
-
-  } catch (err) {
-    console.log(hero + ": failed to read custom file", err.message);
-    return [];
-  }
-}
-
-async function main() {
-  console.log("Fetching:", URL);
-
+async function fetchHTML() {
   const res = await fetch(URL, {
     headers: {
-      "User-Agent":
-        "Mozilla/5.0 cocbasepro-skin-scraper"
+      "User-Agent": "Mozilla/5.0 coc-scraper"
     }
   });
 
@@ -175,105 +85,102 @@ async function main() {
     throw new Error("Fetch failed: " + res.status);
   }
 
-  const html = await res.text();
+  return await res.text();
+}
 
-  const text = cleanText(
-    html
-      .replace(/<script[\s\S]*?<\/script>/gi, " ")
-      .replace(/<style[\s\S]*?<\/style>/gi, " ")
-      .replace(/<[^>]+>/g, " ")
-  );
+/* =========================
+   PARSE SAFE (NO REGEX DEPENDENCY CRITICAL)
+========================= */
 
-  const all = [];
+function extractSkins(text) {
+  const results = [];
+
+  const codes = ["BK", "AQ", "GW", "RC", "MP"];
 
   const re =
-    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP)\b|\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+20\d{2}|\s*$)/gi;
+    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince|Dragon Duke)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\b(BK|AQ|GW|RC|MP)\b|$)/gi;
 
-  let match;
+  let m;
 
-  while ((match = re.exec(text)) !== null) {
-    const code = match[1];
-    const skinName = cleanText(match[2]);
-    const hero = cleanText(match[3]);
-    const rarity = cleanText(match[4]);
+  while ((m = re.exec(text)) !== null) {
+    const code = m[1];
+    const skinName = cleanText(m[2]);
+    const heroRaw = cleanText(m[3]);
+    const rarity = cleanText(m[4]);
+    const source = cleanText(m[5]);
 
-    const source = cleanText(match[5])
-      .replace(/^Image\s*/i, "")
-      .replace(/\s*Image$/i, "");
+    const hero = findHero(heroRaw);
 
-    if (!HERO_CODES[code]) continue;
-    if (!AUTO_HERO_MAP[hero]) continue;
-    if (!skinName || skinName.length > 60) continue;
+    if (!hero) continue;
+    if (!skinName || skinName.length > 80) continue;
 
-    const date = getMonthYear(text, match.index);
-
-    all.push(normalizeSkin({
-      name: skinName,
+    results.push({
       hero,
-      year: date.year,
-      month: date.month,
+      name: skinName,
       rarity,
       source,
-      set: getSetFromName(skinName),
       image: getImageUrl(hero, skinName)
-    }));
+    });
   }
 
-  const unique = [];
-  const seen = new Set();
+  return results;
+}
 
-  for (const item of all) {
-    const key =
-      item.hero.toLowerCase() +
-      "|" +
-      item.name.toLowerCase();
+/* =========================
+   GROUP SAFE
+========================= */
 
-    if (seen.has(key)) continue;
-
-    seen.add(key);
-    unique.push(item);
-  }
-
+function groupByHero(items) {
   const grouped = {};
 
-  Object.keys(HERO_MAP).forEach(hero => {
-    grouped[hero] = [];
-  });
+  HERO_KEYS.forEach(h => grouped[h] = []);
 
-  unique.forEach(item => {
-    if (grouped[item.hero]) {
-      grouped[item.hero].push(item);
-    }
-  });
-
-  for (const hero of Object.keys(CUSTOM_HERO_MAP)) {
-    grouped[hero] = loadCustomHero(
-      hero,
-      CUSTOM_HERO_MAP[hero]
-    );
+  for (const item of items) {
+    if (!grouped[item.hero]) continue;
+    grouped[item.hero].push(item);
   }
 
+  return grouped;
+}
+
+/* =========================
+   VALIDATION (CRITICAL SAFETY)
+========================= */
+
+function validate(grouped) {
+  let emptyHeroes = 0;
+
+  for (const hero of HERO_KEYS) {
+    if (grouped[hero].length === 0) {
+      emptyHeroes++;
+      console.warn("⚠️ EMPTY HERO:", hero);
+    }
+  }
+
+  return emptyHeroes;
+}
+
+/* =========================
+   WRITE SAFE FILE
+========================= */
+
+function writeHeroFiles(grouped) {
   let total = 0;
 
-  for (const hero of Object.keys(grouped)) {
-    grouped[hero].sort((a, b) => {
-      const ay = Number(a.year || 0);
-      const by = Number(b.year || 0);
+  for (const hero of HERO_KEYS) {
+    const skins = grouped[hero];
 
-      return (
-        by - ay ||
-        a.name.localeCompare(b.name)
-      );
-    });
+    skins.sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
 
-    total += grouped[hero].length;
+    total += skins.length;
 
     const fileData = {
       hero,
-      updated:
-        new Date().toISOString().slice(0, 10),
-      count: grouped[hero].length,
-      skins: grouped[hero]
+      updated: new Date().toISOString().slice(0, 10),
+      count: skins.length,
+      skins
     };
 
     fs.writeFileSync(
@@ -282,21 +189,22 @@ async function main() {
       "utf8"
     );
 
-    console.log(
-      hero + ":",
-      grouped[hero].length,
-      "skins"
-    );
+    console.log(hero + ":", skins.length);
   }
 
+  return total;
+}
+
+/* =========================
+   INDEX FILE
+========================= */
+
+function writeIndex(grouped, total) {
   const index = {
-    updated:
-      new Date().toISOString().slice(0, 10),
+    updated: new Date().toISOString().slice(0, 10),
     total,
-    heroes: Object.keys(HERO_MAP).map(hero => ({
-      id: hero
-        .toLowerCase()
-        .replace(/\s+/g, "_"),
+    heroes: HERO_KEYS.map(hero => ({
+      id: hero.toLowerCase().replace(/\s+/g, "_"),
       name: hero,
       file: HERO_MAP[hero],
       count: grouped[hero].length
@@ -308,6 +216,41 @@ async function main() {
     JSON.stringify(index, null, 2),
     "utf8"
   );
+}
+
+/* =========================
+   MAIN SAFE PIPELINE
+========================= */
+
+async function main() {
+  console.log("Fetching:", URL);
+
+  const html = await fetchHTML();
+
+  const text = cleanText(
+    html
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+  );
+
+  const skins = extractSkins(text);
+
+  console.log("Parsed skins:", skins.length);
+
+  const grouped = groupByHero(skins);
+
+  const emptyHeroes = validate(grouped);
+
+  // 🚨 CRITICAL SAFETY: STOP IF BROKEN SCRAPE
+  if (emptyHeroes >= 3) {
+    console.error("❌ SCRAPER BROKEN - ABORTING");
+    process.exit(1);
+  }
+
+  const total = writeHeroFiles(grouped);
+
+  writeIndex(grouped, total);
 
   console.log("Total skins:", total);
   console.log("Done.");
