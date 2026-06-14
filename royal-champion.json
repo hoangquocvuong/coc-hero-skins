@@ -1,6 +1,467 @@
 {
   "hero": "Royal Champion",
-  "updated": "2026-06-14",
-  "count": 0,
-  "skins": []
+  "updated": "2026-06-11",
+  "count": 46,
+  "skins": [
+    {
+      "name": "Anime Fury Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Jun",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Anime Fury",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/anime-fury-champion.png"
+    },
+    {
+      "name": "Clash-A-Rama Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Clash-A-Rama",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/clash-a-rama-champion.png"
+    },
+    {
+      "name": "Dragonscale Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Dragonscale",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/dragonscale-champion.png"
+    },
+    {
+      "name": "Football Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Football",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/football-champion.png"
+    },
+    {
+      "name": "Gingerbread Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Gingerbread",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/gingerbread-champion.png"
+    },
+    {
+      "name": "League Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "2,000 League Medals",
+      "set": "League",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/league-champion.png"
+    },
+    {
+      "name": "Magic Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Magic",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/magic-champion.png"
+    },
+    {
+      "name": "Mirage Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Jan",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Mirage",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/mirage-champion.png"
+    },
+    {
+      "name": "Party Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Party",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/party-champion.png"
+    },
+    {
+      "name": "Pixel Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$4.99 USD approx",
+      "set": "Pixel",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/pixel-champion.png"
+    },
+    {
+      "name": "Red Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Red",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/red-champion.png"
+    },
+    {
+      "name": "Royal Screamstress",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Royal Screamstress",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/royal-screamstress.png"
+    },
+    {
+      "name": "Skeleton Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Skeleton",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/skeleton-champion.png"
+    },
+    {
+      "name": "Wild West Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Wild West",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/wild-west-champion.png"
+    },
+    {
+      "name": "Cursed Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Oct",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Cursed",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/cursed-champion.png"
+    },
+    {
+      "name": "Explorer Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Explorer",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/explorer-champion.png"
+    },
+    {
+      "name": "Ice Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Ice",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/ice-champion.png"
+    },
+    {
+      "name": "Nomad Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Nov",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Nomad",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/nomad-champion.png"
+    },
+    {
+      "name": "Royal Ninja",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Royal Ninja",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/royal-ninja.png"
+    },
+    {
+      "name": "Royal Officer",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Royal Officer",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/royal-officer.png"
+    },
+    {
+      "name": "Showtime Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Showtime",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/showtime-champion.png"
+    },
+    {
+      "name": "Snake Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Feb",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Snake",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/snake-champion.png"
+    },
+    {
+      "name": "Sniper Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Sniper",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/sniper-champion.png"
+    },
+    {
+      "name": "The RoyalEST",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "The RoyalEST",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/the-royalest.png"
+    },
+    {
+      "name": "Yeti Champion",
+      "hero": "Royal Champion",
+      "year": "2025",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Yeti",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/yeti-champion.png"
+    },
+    {
+      "name": "Anime Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Aug",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Anime",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/anime-champion.png"
+    },
+    {
+      "name": "Dragon Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Feb",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Dragon",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/dragon-champion.png"
+    },
+    {
+      "name": "Egypt Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Apr",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Egypt",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/egypt-champion.png"
+    },
+    {
+      "name": "Paladin Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Sep",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Paladin",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/paladin-champion.png"
+    },
+    {
+      "name": "Space Champion",
+      "hero": "Royal Champion",
+      "year": "2024",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Space",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/space-champion.png"
+    },
+    {
+      "name": "Champions' Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Nov",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Champions'",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/champions-champion.png"
+    },
+    {
+      "name": "Dark Ages Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "May",
+      "rarity": "Legendary",
+      "source": "$9.99 USD BM Armored Machine Battle Machine Standard Chest reward (current)",
+      "set": "Dark Ages",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/dark-ages-champion.png"
+    },
+    {
+      "name": "Future Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Aug",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Future",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/future-champion.png"
+    },
+    {
+      "name": "Ghost Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "Gold Pass Reward",
+      "set": "Ghost",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/ghost-champion.png"
+    },
+    {
+      "name": "Goblin Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Jul",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Goblin",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/goblin-champion.png"
+    },
+    {
+      "name": "Painter Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Painter",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/painter-champion.png"
+    },
+    {
+      "name": "Warrior Champion",
+      "hero": "Royal Champion",
+      "year": "2023",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Warrior",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/warrior-champion.png"
+    },
+    {
+      "name": "Jolly Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Dec",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Jolly",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/jolly-champion.png"
+    },
+    {
+      "name": "Pirate Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Dec",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Pirate",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/pirate-champion.png"
+    },
+    {
+      "name": "Primal Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Mar",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Primal",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/primal-champion.png"
+    },
+    {
+      "name": "Shadow Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Apr",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Shadow",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/shadow-champion.png"
+    },
+    {
+      "name": "Summer Champion",
+      "hero": "Royal Champion",
+      "year": "2022",
+      "month": "Jun",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Summer",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/summer-champion.png"
+    },
+    {
+      "name": "Gladiator Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "Oct",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Gladiator",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/gladiator-champion.png"
+    },
+    {
+      "name": "Jungle Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Jungle",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/jungle-champion.png"
+    },
+    {
+      "name": "Rogue Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "May",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Rogue",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/rogue-champion.png"
+    },
+    {
+      "name": "Winter Champion",
+      "hero": "Royal Champion",
+      "year": "2021",
+      "month": "Jan",
+      "rarity": "Gold Pass",
+      "source": "1,500 Gems",
+      "set": "Winter",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/winter-champion.png"
+    }
+  ]
 }
