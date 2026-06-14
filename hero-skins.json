@@ -1,36 +1,36 @@
 {
-  "updated": "2026-06-11",
-  "total": 240,
+  "updated": "2026-06-14",
+  "total": 4,
   "heroes": [
     {
       "id": "barbarian_king",
       "name": "Barbarian King",
       "file": "barbarian-king.json",
-      "count": 64
+      "count": 0
     },
     {
       "id": "archer_queen",
       "name": "Archer Queen",
       "file": "archer-queen.json",
-      "count": 59
+      "count": 0
     },
     {
       "id": "grand_warden",
       "name": "Grand Warden",
       "file": "grand-warden.json",
-      "count": 50
+      "count": 0
     },
     {
       "id": "royal_champion",
       "name": "Royal Champion",
       "file": "royal-champion.json",
-      "count": 46
+      "count": 0
     },
     {
       "id": "minion_prince",
       "name": "Minion Prince",
       "file": "minion-prince.json",
-      "count": 17
+      "count": 0
     },
     {
       "id": "dragon_duke",
