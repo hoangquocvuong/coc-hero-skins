@@ -2,13 +2,6 @@ const fs = require("fs");
 
 const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
 
-const IMAGE_BASE =
-  "https://hoangquocvuong.github.io/coc-hero-images/";
-
-/* =========================
-   HERO CONFIG
-========================= */
-
 const HERO_MAP = {
   "Barbarian King": "barbarian-king.json",
   "Archer Queen": "archer-queen.json",
@@ -18,242 +11,138 @@ const HERO_MAP = {
   "Dragon Duke": "dragon-duke.json"
 };
 
-const HERO_KEYS = Object.keys(HERO_MAP);
-
-/* =========================
-   UTILS
-========================= */
-
-function cleanText(s) {
-  return String(s || "")
-    .replace(/\u00A0/g, " ")
-    .replace(/\s+/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&#x27;/g, "'")
-    .replace(/&quot;/g, '"')
-    .trim();
-}
-
-function normalizeHero(hero) {
-  return cleanText(hero)
-    .toLowerCase();
-}
-
-function findHero(realHero) {
-  const h = normalizeHero(realHero);
-
-  return HERO_KEYS.find(k =>
-    k.toLowerCase() === h
-  );
-}
-
-function slugify(str) {
-  return String(str || "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-function heroFolder(hero) {
-  return String(hero || "")
-    .toLowerCase()
-    .replace(/\s+/g, "-");
-}
-
-function getImageUrl(hero, skinName) {
-  return (
-    IMAGE_BASE +
-    heroFolder(hero) +
-    "/" +
-    slugify(skinName) +
-    ".png"
-  );
-}
-
-/* =========================
-   FETCH
-========================= */
-
-async function fetchHTML() {
-  const res = await fetch(URL, {
-    headers: {
-      "User-Agent": "Mozilla/5.0 coc-scraper"
-    }
-  });
-
-  if (!res.ok) {
-    throw new Error("Fetch failed: " + res.status);
+function safeRead(file) {
+  try {
+    return JSON.parse(fs.readFileSync(file, "utf8"));
+  } catch {
+    return null;
   }
-
-  return await res.text();
 }
 
-/* =========================
-   PARSE SAFE (NO REGEX DEPENDENCY CRITICAL)
-========================= */
+function backupFile(file) {
+  if (!fs.existsSync(file)) return;
 
-function extractSkins(text) {
-  const results = [];
+  const backupDir = "./backup";
+  if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir);
 
-  const codes = ["BK", "AQ", "GW", "RC", "MP"];
+  const name = file.replace(".json", "");
+  const time = new Date().toISOString().slice(0, 10);
 
-  const re =
-    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince|Dragon Duke)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\b(BK|AQ|GW|RC|MP)\b|$)/gi;
-
-  let m;
-
-  while ((m = re.exec(text)) !== null) {
-    const code = m[1];
-    const skinName = cleanText(m[2]);
-    const heroRaw = cleanText(m[3]);
-    const rarity = cleanText(m[4]);
-    const source = cleanText(m[5]);
-
-    const hero = findHero(heroRaw);
-
-    if (!hero) continue;
-    if (!skinName || skinName.length > 80) continue;
-
-    results.push({
-      hero,
-      name: skinName,
-      rarity,
-      source,
-      image: getImageUrl(hero, skinName)
-    });
-  }
-
-  return results;
+  fs.copyFileSync(file, `${backupDir}/${name}.${time}.json`);
 }
 
-/* =========================
-   GROUP SAFE
-========================= */
-
-function groupByHero(items) {
-  const grouped = {};
-
-  HERO_KEYS.forEach(h => grouped[h] = []);
-
-  for (const item of items) {
-    if (!grouped[item.hero]) continue;
-    grouped[item.hero].push(item);
-  }
-
-  return grouped;
-}
-
-/* =========================
-   VALIDATION (CRITICAL SAFETY)
-========================= */
-
-function validate(grouped) {
-  let emptyHeroes = 0;
-
-  for (const hero of HERO_KEYS) {
-    if (grouped[hero].length === 0) {
-      emptyHeroes++;
-      console.warn("⚠️ EMPTY HERO:", hero);
-    }
-  }
-
-  return emptyHeroes;
-}
-
-/* =========================
-   WRITE SAFE FILE
-========================= */
-
-function writeHeroFiles(grouped) {
-  let total = 0;
-
-  for (const hero of HERO_KEYS) {
-    const skins = grouped[hero];
-
-    skins.sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
-
-    total += skins.length;
-
-    const fileData = {
-      hero,
-      updated: new Date().toISOString().slice(0, 10),
-      count: skins.length,
-      skins
-    };
-
-    fs.writeFileSync(
-      HERO_MAP[hero],
-      JSON.stringify(fileData, null, 2),
-      "utf8"
-    );
-
-    console.log(hero + ":", skins.length);
-  }
-
-  return total;
-}
-
-/* =========================
-   INDEX FILE
-========================= */
-
-function writeIndex(grouped, total) {
-  const index = {
-    updated: new Date().toISOString().slice(0, 10),
-    total,
-    heroes: HERO_KEYS.map(hero => ({
-      id: hero.toLowerCase().replace(/\s+/g, "_"),
-      name: hero,
-      file: HERO_MAP[hero],
-      count: grouped[hero].length
-    }))
+function normalize(item) {
+  return {
+    name: item.name || "",
+    hero: item.hero || "",
+    year: item.year || "",
+    month: item.month || "",
+    rarity: item.rarity || "",
+    source: item.source || "",
+    set: item.set || "",
+    image: item.image || ""
   };
-
-  fs.writeFileSync(
-    "hero-skins.json",
-    JSON.stringify(index, null, 2),
-    "utf8"
-  );
 }
 
-/* =========================
-   MAIN SAFE PIPELINE
-========================= */
+async function scrape() {
+  const res = await fetch(URL);
+  const html = await res.text();
+
+  // fallback parser cực đơn giản (tránh regex fail = 0)
+  const skins = [];
+
+  const matches = [...html.matchAll(/data-skin="([^"]+)"/g)];
+
+  for (const m of matches) {
+    try {
+      const obj = JSON.parse(m[1]);
+      skins.push(normalize(obj));
+    } catch {}
+  }
+
+  return skins;
+}
 
 async function main() {
-  console.log("Fetching:", URL);
+  console.log("Fetching skins...");
 
-  const html = await fetchHTML();
+  const allSkins = await scrape();
 
-  const text = cleanText(
-    html
-      .replace(/<script[\s\S]*?<\/script>/gi, " ")
-      .replace(/<style[\s\S]*?<\/style>/gi, " ")
-      .replace(/<[^>]+>/g, " ")
-  );
+  const grouped = {};
+  for (const hero of Object.keys(HERO_MAP)) {
+    grouped[hero] = [];
+  }
 
-  const skins = extractSkins(text);
+  for (const s of allSkins) {
+    if (grouped[s.hero]) grouped[s.hero].push(s);
+  }
 
-  console.log("Parsed skins:", skins.length);
+  let total = 0;
 
-  const grouped = groupByHero(skins);
-
-  const emptyHeroes = validate(grouped);
-
-  // 🚨 CRITICAL SAFETY: STOP IF BROKEN SCRAPE
-  if (emptyHeroes >= 3) {
-    console.error("❌ SCRAPER BROKEN - ABORTING");
+  // 🛑 SAFETY CHECK 1: nếu scrape fail hoàn toàn
+  if (!allSkins.length) {
+    console.log("❌ SCRAPE FAILED - NO DATA FOUND (STOP)");
     process.exit(1);
   }
 
-  const total = writeHeroFiles(grouped);
+  for (const hero of Object.keys(HERO_MAP)) {
+    const file = HERO_MAP[hero];
 
-  writeIndex(grouped, total);
+    // 🛑 BACKUP TRƯỚC KHI GHI
+    backupFile(file);
 
-  console.log("Total skins:", total);
-  console.log("Done.");
+    const old = safeRead(file);
+
+    const skins = grouped[hero].map(normalize);
+
+    // 🛑 SAFETY CHECK 2: không cho giảm dữ liệu nghiêm trọng
+    if (old && old.skins && skins.length < old.skins.length * 0.5) {
+      console.log(`❌ SKIP ${hero} (data dropped too much: ${skins.length})`);
+      continue;
+    }
+
+    total += skins.length;
+
+    fs.writeFileSync(
+      file,
+      JSON.stringify(
+        {
+          hero,
+          updated: new Date().toISOString().slice(0, 10),
+          count: skins.length,
+          skins
+        },
+        null,
+        2
+      )
+    );
+
+    console.log(`${hero}: ${skins.length}`);
+  }
+
+  // index file
+  const index = {
+    updated: new Date().toISOString().slice(0, 10),
+    total,
+    heroes: Object.entries(HERO_MAP).map(([name, file]) => {
+      const data = safeRead(file);
+      return {
+        id: name.toLowerCase().replace(/\s+/g, "_"),
+        name,
+        file,
+        count: data?.count || 0
+      };
+    })
+  };
+
+  fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2));
+
+  console.log("TOTAL:", total);
+
+  // 🛑 SAFETY CHECK 3: tổng phải hợp lý
+  if (total < 100) {
+    console.log("❌ TOTAL TOO LOW - ABORT WARNING");
+  }
 }
 
 main().catch(err => {
