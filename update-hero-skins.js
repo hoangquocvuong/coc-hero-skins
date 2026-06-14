@@ -1,7 +1,5 @@
 const fs = require("fs");
 
-const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
-
 const HERO_MAP = {
   "Barbarian King": "barbarian-king.json",
   "Archer Queen": "archer-queen.json",
@@ -11,6 +9,10 @@ const HERO_MAP = {
   "Dragon Duke": "dragon-duke.json"
 };
 
+// =========================
+// SAFE UTIL
+// =========================
+
 function safeRead(file) {
   try {
     return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -19,16 +21,22 @@ function safeRead(file) {
   }
 }
 
-function backupFile(file) {
+function ensureDir(dir) {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+}
+
+function backup(file) {
   if (!fs.existsSync(file)) return;
 
-  const backupDir = "./backup";
-  if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir);
+  ensureDir("./backup");
 
   const name = file.replace(".json", "");
-  const time = new Date().toISOString().slice(0, 10);
+  const date = new Date().toISOString().slice(0, 10);
 
-  fs.copyFileSync(file, `${backupDir}/${name}.${time}.json`);
+  fs.copyFileSync(
+    file,
+    `./backup/${name}.${date}.json`
+  );
 }
 
 function normalize(item) {
@@ -44,108 +52,154 @@ function normalize(item) {
   };
 }
 
-async function scrape() {
-  const res = await fetch(URL);
-  const html = await res.text();
+// =========================
+// DATA SOURCE (NO SCRAPE)
+// =========================
+// 👉 THAY THẾ FILE NÀY BẰNG DATA THẬT CỦA BẠN
+// ví dụ export từ manual / API / JSON dump
+// =========================
 
-  // fallback parser cực đơn giản (tránh regex fail = 0)
-  const skins = [];
+function loadSourceData() {
+  const file = "./data/hero-skins-source.json";
 
-  const matches = [...html.matchAll(/data-skin="([^"]+)"/g)];
-
-  for (const m of matches) {
-    try {
-      const obj = JSON.parse(m[1]);
-      skins.push(normalize(obj));
-    } catch {}
+  if (!fs.existsSync(file)) {
+    console.log("❌ Missing source file:", file);
+    return [];
   }
 
-  return skins;
+  try {
+    const data = JSON.parse(fs.readFileSync(file, "utf8"));
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
 }
 
-async function main() {
-  console.log("Fetching skins...");
+// =========================
+// MAIN
+// =========================
 
-  const allSkins = await scrape();
+async function main() {
+  console.log("🚀 Loading hero skins source...");
+
+  const allSkins = loadSourceData().map(normalize);
+
+  // =========================
+  // SAFETY CHECK 1
+  // =========================
+  if (!allSkins.length) {
+    console.log("❌ NO DATA FOUND → STOP (prevent overwrite)");
+    process.exit(1);
+  }
 
   const grouped = {};
   for (const hero of Object.keys(HERO_MAP)) {
     grouped[hero] = [];
   }
 
-  for (const s of allSkins) {
-    if (grouped[s.hero]) grouped[s.hero].push(s);
+  for (const skin of allSkins) {
+    if (grouped[skin.hero]) {
+      grouped[skin.hero].push(skin);
+    }
   }
 
   let total = 0;
 
-  // 🛑 SAFETY CHECK 1: nếu scrape fail hoàn toàn
-  if (!allSkins.length) {
-    console.log("❌ SCRAPE FAILED - NO DATA FOUND (STOP)");
-    process.exit(1);
-  }
+  // =========================
+  // WRITE HERO FILES
+  // =========================
 
   for (const hero of Object.keys(HERO_MAP)) {
     const file = HERO_MAP[hero];
 
-    // 🛑 BACKUP TRƯỚC KHI GHI
-    backupFile(file);
+    backup(file);
 
     const old = safeRead(file);
+    const skins = grouped[hero] || [];
 
-    const skins = grouped[hero].map(normalize);
+    // =========================
+    // SAFETY CHECK 2 (anti data loss)
+    // =========================
+    if (old?.skins?.length) {
+      const ratio = skins.length / old.skins.length;
 
-    // 🛑 SAFETY CHECK 2: không cho giảm dữ liệu nghiêm trọng
-    if (old && old.skins && skins.length < old.skins.length * 0.5) {
-      console.log(`❌ SKIP ${hero} (data dropped too much: ${skins.length})`);
-      continue;
+      if (ratio < 0.6) {
+        console.log(
+          `⚠️ SKIP ${hero} (too much data drop: ${Math.round(ratio * 100)}%)`
+        );
+        continue;
+      }
     }
 
     total += skins.length;
 
+    const output = {
+      hero,
+      updated: new Date().toISOString().slice(0, 10),
+      count: skins.length,
+      skins
+    };
+
     fs.writeFileSync(
       file,
-      JSON.stringify(
-        {
-          hero,
-          updated: new Date().toISOString().slice(0, 10),
-          count: skins.length,
-          skins
-        },
-        null,
-        2
-      )
+      JSON.stringify(output, null, 2),
+      "utf8"
     );
 
-    console.log(`${hero}: ${skins.length}`);
+    console.log(`✅ ${hero}: ${skins.length}`);
   }
 
-  // index file
+  // =========================
+  // INDEX FILE
+  // =========================
+
   const index = {
     updated: new Date().toISOString().slice(0, 10),
     total,
-    heroes: Object.entries(HERO_MAP).map(([name, file]) => {
-      const data = safeRead(file);
+    heroes: Object.keys(HERO_MAP).map(hero => {
+      const data = safeRead(HERO_MAP[hero]);
+
       return {
-        id: name.toLowerCase().replace(/\s+/g, "_"),
-        name,
-        file,
+        id: hero.toLowerCase().replace(/\s+/g, "_"),
+        name: hero,
+        file: HERO_MAP[hero],
         count: data?.count || 0
       };
     })
   };
 
-  fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2));
+  fs.writeFileSync(
+    "hero-skins.json",
+    JSON.stringify(index, null, 2),
+    "utf8"
+  );
 
-  console.log("TOTAL:", total);
+  // =========================
+  // SNAPSHOT (ROLLBACK SAFE)
+  // =========================
 
-  // 🛑 SAFETY CHECK 3: tổng phải hợp lý
+  ensureDir("./backup");
+
+  fs.writeFileSync(
+    "./backup/last-good.json",
+    JSON.stringify(index, null, 2)
+  );
+
+  console.log("================================");
+  console.log("TOTAL SKINS:", total);
+  console.log("DONE SAFE BUILD");
+  console.log("================================");
+
+  // =========================
+  // FINAL SAFETY CHECK
+  // =========================
+
   if (total < 100) {
-    console.log("❌ TOTAL TOO LOW - ABORT WARNING");
+    console.log("❌ WARNING: TOTAL TOO LOW (possible broken data)");
   }
 }
 
 main().catch(err => {
-  console.error(err);
+  console.error("FATAL ERROR:", err);
   process.exit(1);
 });
