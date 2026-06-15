@@ -9,62 +9,122 @@ const HERO_MAP = {
   "Dragon Duke": "dragon-duke.json"
 };
 
-function read(file) {
+function readJSON(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
-function normalize(s) {
-  return {
-    name: s.name || "",
-    hero: s.hero || "",
-    year: s.year || "",
-    month: s.month || "",
-    rarity: s.rarity || "",
-    source: s.source || "",
-    set: s.set || "",
-    image: s.image || ""
-  };
+function writeJSON(file, data) {
+  fs.writeFileSync(
+    file,
+    JSON.stringify(data, null, 2),
+    "utf8"
+  );
 }
 
-function main() {
+function normalizeSkin(hero, skin) {
+
+  return {
+
+    name: String(skin.name || "").trim(),
+
+    hero,
+
+    year: String(skin.year || ""),
+
+    month: String(skin.month || ""),
+
+    rarity: String(skin.rarity || ""),
+
+    source: String(skin.source || ""),
+
+    set: String(skin.set || ""),
+
+    image: String(skin.image || "")
+
+  };
+
+}
+
+function build() {
+
+  console.log("");
+
+  console.log("🚀 HERO SKINS BUILD");
+
+  console.log("");
+
   let total = 0;
 
+  const heroes = [];
+
   for (const hero of Object.keys(HERO_MAP)) {
+
     const file = HERO_MAP[hero];
-    const data = read(file);
 
-    const skins = (data.skins || []).map(normalize);
+    const data = readJSON(file);
 
-    const out = {
+    const skins = (data.skins || []).map(item =>
+      normalizeSkin(hero, item)
+    );
+
+    const output = {
+
       hero,
-      updated: new Date().toISOString().slice(0, 10),
+
+      updated: new Date()
+        .toISOString()
+        .slice(0, 10),
+
       count: skins.length,
+
       skins
+
     };
 
-    fs.writeFileSync(file, JSON.stringify(out, null, 2));
+    writeJSON(file, output);
+
+    heroes.push({
+
+      id: hero
+        .toLowerCase()
+        .replace(/\s+/g, "_"),
+
+      name: hero,
+
+      file,
+
+      count: skins.length
+
+    });
+
     total += skins.length;
 
-    console.log(hero, skins.length);
+    console.log(
+      "✔",
+      hero,
+      skins.length
+    );
+
   }
 
-  const index = {
-    updated: new Date().toISOString().slice(0, 10),
+  writeJSON("hero-skins.json", {
+
+    updated: new Date()
+      .toISOString()
+      .slice(0, 10),
+
     total,
-    heroes: Object.entries(HERO_MAP).map(([name, file]) => {
-      const d = read(file);
-      return {
-        id: name.toLowerCase().replace(/\s+/g, "_"),
-        name,
-        file,
-        count: d.count
-      };
-    })
-  };
 
-  fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2));
+    heroes
 
-  console.log("TOTAL:", total);
+  });
+
+  console.log("");
+
+  console.log("TOTAL :", total);
+
+  console.log("DONE");
+
 }
 
-main();
+build();
