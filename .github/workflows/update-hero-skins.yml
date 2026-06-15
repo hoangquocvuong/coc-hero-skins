@@ -2,7 +2,7 @@ name: Auto Hero Skins Crawler
 
 on:
   schedule:
-    - cron: "0 0 * * 0"  # mỗi Chủ nhật
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 
 permissions:
@@ -22,9 +22,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Install deps
-        run: npm install
 
       - name: Run crawler
         run: node update-hero-skins.js
