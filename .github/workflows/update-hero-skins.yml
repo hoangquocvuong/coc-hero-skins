@@ -2,7 +2,7 @@ name: Auto Hero Skins Crawler
 
 on:
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: "0 0 * * 0"  # Chủ nhật hàng tuần
   workflow_dispatch:
 
 permissions:
@@ -11,6 +11,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    # 🔥 FIX Node 24 deprecation warning
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout repo
@@ -21,7 +25,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
+
+      # ❌ KHÔNG npm install (vì bạn không có package.json)
 
       - name: Run crawler
         run: node update-hero-skins.js
