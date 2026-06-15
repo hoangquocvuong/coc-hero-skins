@@ -1,38 +1,35 @@
-name: Update Hero Skins
+name: Auto Hero Skins Crawler
 
 on:
   schedule:
-    - cron: "0 0 * * 0"
-
+    - cron: "0 */6 * * *"  # mỗi 6 giờ
   workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: update-hero-skins
-  cancel-in-progress: true
-
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Run update script
+      - name: Install deps
+        run: npm install
+
+      - name: Run crawler
         run: node update-hero-skins.js
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -40,12 +37,11 @@ jobs:
           git add .
 
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "No changes"
             exit 0
           fi
 
-          git commit -m "Auto update hero skins"
+          git commit -m "auto: update hero skins"
 
-          git pull --rebase origin main
-
-          git push origin HEAD:main
+      - name: Push changes
+        run: git push origin main
