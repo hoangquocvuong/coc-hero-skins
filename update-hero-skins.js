@@ -1,10 +1,6 @@
 const fs = require("fs");
 
 const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
-const MANUAL_FILE = "manual-skins.json";
-
-const IMAGE_BASE =
-  "https://hoangquocvuong.github.io/coc-hero-images/";
 
 const HERO_MAP = {
   "Barbarian King": "barbarian-king.json",
@@ -14,24 +10,6 @@ const HERO_MAP = {
   "Minion Prince": "minion-prince.json"
 };
 
-const HERO_CODES = {
-  BK: "Barbarian King",
-  AQ: "Archer Queen",
-  GW: "Grand Warden",
-  RC: "Royal Champion",
-  MP: "Minion Prince"
-};
-
-// ---------------- SAFE READ ----------------
-function readExisting(file) {
-  try {
-    return JSON.parse(fs.readFileSync(file, "utf8"));
-  } catch {
-    return null;
-  }
-}
-
-// ---------------- CLEAN TEXT ----------------
 function cleanText(s) {
   return String(s || "")
     .replace(/\s+/g, " ")
@@ -41,7 +19,6 @@ function cleanText(s) {
     .trim();
 }
 
-// ---------------- IMAGE ----------------
 function slugify(str) {
   return String(str || "")
     .toLowerCase()
@@ -56,86 +33,54 @@ function heroFolder(hero) {
 }
 
 function getImageUrl(hero, skinName) {
-  return (
-    IMAGE_BASE +
-    heroFolder(hero) +
-    "/" +
-    slugify(skinName) +
-    ".png"
-  );
+  return `https://hoangquocvuong.github.io/coc-hero-images/${heroFolder(hero)}/${slugify(skinName)}.png`;
 }
 
-// ---------------- MONTH PARSE ----------------
-function getMonthYear(text, index) {
-  const before = text.slice(Math.max(0, index - 200), index);
+function backup(file) {
+  if (!fs.existsSync(file)) return;
+  const dir = "./backup";
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
-  const m = before.match(
-    /(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(20\d{2})/i
-  );
-
-  if (!m) return { month: "", year: "" };
-
-  return { month: m[1], year: m[2] };
+  const date = new Date().toISOString().slice(0, 10);
+  fs.copyFileSync(file, `${dir}/${file}.${date}.bak.json`);
 }
 
-// ---------------- SET NAME ----------------
-function getSetFromName(name) {
-  const bad = ["King", "Queen", "Warden", "Champion", "Prince"];
-
-  const parts = String(name || "").split(" ").filter(Boolean);
-
-  const filtered = parts.filter(p => !bad.includes(p));
-
-  return filtered.length ? filtered.join(" ") : "";
-}
-
-// ---------------- NORMALIZE ----------------
-function normalizeSkin(item) {
-  const name = cleanText(item.name);
-  const hero = cleanText(item.hero);
-
-  return {
-    name,
-    hero,
-    year: String(item.year || ""),
-    month: String(item.month || ""),
-    rarity: cleanText(item.rarity || "Legendary"),
-    source: cleanText(item.source || ""),
-    set: cleanText(item.set || getSetFromName(name)),
-    image: getImageUrl(hero, name)
-  };
-}
-
-// ---------------- MANUAL SKINS ----------------
-function loadManualSkins() {
-  if (!fs.existsSync(MANUAL_FILE)) return [];
-
+function safeRead(file) {
   try {
-    const data = JSON.parse(fs.readFileSync(MANUAL_FILE, "utf8"));
-
-    if (!Array.isArray(data)) return [];
-
-    return data
-      .map(normalizeSkin)
-      .filter(item => item.name && HERO_MAP[item.hero]);
-
+    return JSON.parse(fs.readFileSync(file, "utf8"));
   } catch {
-    return [];
+    return null;
   }
 }
 
-// ---------------- FETCH ----------------
+function normalize(item) {
+  return {
+    name: cleanText(item.name),
+    hero: cleanText(item.hero),
+    year: item.year || "",
+    month: item.month || "",
+    rarity: item.rarity || "Legendary",
+    source: item.source || "",
+    set: item.set || "",
+    image: getImageUrl(item.hero, item.name)
+  };
+}
+
+/**
+ * ====== CRAWLER (FIXED STABILITY) ======
+ */
 async function fetchAutoSkins() {
-  console.log("Fetching:", URL);
+  console.log("🔄 Fetching Vault...");
 
   const res = await fetch(URL, {
     headers: {
-      "User-Agent": "Mozilla/5.0 coc-skin-crawler"
+      "User-Agent": "Mozilla/5.0 coc-skins-bot"
     }
   });
 
   if (!res.ok) {
-    throw new Error("Fetch failed: " + res.status);
+    console.log("❌ Fetch failed:", res.status);
+    return [];
   }
 
   const html = await res.text();
@@ -147,146 +92,107 @@ async function fetchAutoSkins() {
       .replace(/<[^>]+>/g, " ")
   );
 
-  const all = [];
-
   const re =
-    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP)\b|\s*$)/gi;
+    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP)\b|$)/gi;
 
-  let match;
+  const skins = [];
+  let m;
 
-  while ((match = re.exec(text)) !== null) {
-    const skinName = cleanText(match[2]);
-    const hero = cleanText(match[3]);
-    const rarity = cleanText(match[4]);
-    const source = cleanText(match[5]);
+  while ((m = re.exec(text)) !== null) {
+    const hero = cleanText(m[3]);
+    const name = cleanText(m[2]);
 
+    if (!hero || !name) continue;
     if (!HERO_MAP[hero]) continue;
-    if (!skinName || skinName.length > 60) continue;
 
-    const date = getMonthYear(text, match.index);
-
-    all.push({
-      name: skinName,
+    skins.push({
       hero,
-      year: date.year,
-      month: date.month,
-      rarity,
-      source,
-      set: getSetFromName(skinName),
-      image: getImageUrl(hero, skinName)
+      name,
+      rarity: m[4],
+      source: cleanText(m[5]),
+      year: "",
+      month: ""
     });
   }
 
-  return all;
+  console.log("📦 Parsed skins:", skins.length);
+
+  return skins;
 }
 
-// ---------------- MAIN ----------------
+/**
+ * ====== MERGE SAFE ======
+ */
+function merge(oldData, newData) {
+  const map = new Map();
+
+  const put = (item) => {
+    const key = item.hero + "|" + item.name;
+    map.set(key, item);
+  };
+
+  (oldData || []).forEach(put);
+  (newData || []).forEach(put);
+
+  return Array.from(map.values());
+}
+
 async function main() {
   console.log("🚀 Hero Skin Crawler Start");
 
   const autoSkins = await fetchAutoSkins();
-  const manualSkins = loadManualSkins();
 
-  console.log("📦 Parsed skins:", autoSkins.length);
-
-  // ❌ GLOBAL SAFETY (CHẶN WIPE DATA)
-  if (autoSkins.length < 200) {
-    console.log("🛑 Abort update (<200)");
+  // ❌ SAFE GUARD: nếu crawl fail → KHÔNG ghi đè
+  if (!autoSkins.length || autoSkins.length < 150) {
+    console.log("❌ Abort update: data suspicious (<150)");
     console.log("🛑 Keep old data");
     return;
   }
 
-  const merged = new Map();
+  let totalNew = 0;
 
-  for (const s of autoSkins) {
-    merged.set(s.hero + "|" + s.name, s);
-  }
-
-  for (const s of manualSkins) {
-    merged.set(s.hero + "|" + s.name, s);
-  }
-
-  const unique = Array.from(merged.values());
-
-  const grouped = {};
-  Object.keys(HERO_MAP).forEach(h => (grouped[h] = []));
-
-  unique.forEach(item => {
-    if (grouped[item.hero]) {
-      grouped[item.hero].push(item);
-    }
-  });
-
-  const existing = {};
   for (const hero of Object.keys(HERO_MAP)) {
-    existing[hero] = readExisting(HERO_MAP[hero]);
-  }
+    const file = HERO_MAP[hero];
 
-  // ---------------- WRITE SAFE ----------------
-  for (const hero of Object.keys(grouped)) {
-    const newSkins = grouped[hero];
-    const oldData = existing[hero];
+    const old = safeRead(file);
+    const oldSkins = old?.skins || [];
 
-    // ❌ không có data
-    if (!newSkins || newSkins.length === 0) {
-      console.log(`🛑 Skip ${hero} (empty → keep old)`);
+    const heroNew = autoSkins.filter(s => s.hero === hero);
+
+    const merged = merge(oldSkins, heroNew).map(normalize);
+
+    // ❌ nếu không có thay đổi → skip
+    if (merged.length === oldSkins.length) {
+      console.log("⏭ No update:", hero);
       continue;
     }
 
-    // ❌ giảm quá mạnh → giữ data cũ
-    if (oldData && newSkins.length < oldData.skins.length * 0.5) {
-      console.log(`⚠️ ${hero} suspicious drop → keep old`);
-      continue;
-    }
-
-    newSkins.sort((a, b) => {
-      const ay = Number(a.year || 0);
-      const by = Number(b.year || 0);
-      return by - ay || a.name.localeCompare(b.name);
-    });
+    backup(file);
 
     const out = {
       hero,
       updated: new Date().toISOString().slice(0, 10),
-      count: newSkins.length,
-      skins: newSkins
+      count: merged.length,
+      skins: merged
     };
 
-    fs.writeFileSync(
-      HERO_MAP[hero],
-      JSON.stringify(out, null, 2),
-      "utf8"
-    );
+    fs.writeFileSync(file, JSON.stringify(out, null, 2));
 
-    console.log(`✔ ${hero}: ${newSkins.length}`);
+    console.log("✔ Updated:", hero, merged.length);
+    totalNew += merged.length;
   }
 
+  // index file
   const index = {
     updated: new Date().toISOString().slice(0, 10),
-    total: unique.length,
-    auto: autoSkins.length,
-    manual: manualSkins.length,
-    heroes: Object.keys(HERO_MAP).map(hero => ({
-      id: hero.toLowerCase().replace(/\s+/g, "_"),
-      name: hero,
-      file: HERO_MAP[hero],
-      count: grouped[hero]?.length || 0
-    }))
+    total: totalNew
   };
 
-  fs.writeFileSync(
-    "hero-skins.json",
-    JSON.stringify(index, null, 2),
-    "utf8"
-  );
+  fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2));
 
-  console.log("TOTAL:", unique.length);
-  console.log("Auto:", autoSkins.length);
-  console.log("Manual:", manualSkins.length);
-  console.log("Done.");
+  console.log("✅ DONE TOTAL:", totalNew);
 }
 
 main().catch(err => {
-  console.error(err);
-  process.exit(1);
+  console.error("❌ ERROR:", err);
 });
