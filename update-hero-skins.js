@@ -1,15 +1,12 @@
 const fs = require("fs");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
-const HERO_MAP = {
-  "Barbarian King": "barbarian-king.json",
-  "Archer Queen": "archer-queen.json",
-  "Grand Warden": "grand-warden.json",
-  "Royal Champion": "royal-champion.json",
-  "Minion Prince": "minion-prince.json",
-  "Dragon Duke": "dragon-duke.json"
-};
+const MIN_SKINS = 200;
+const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
+const OUTPUT = "hero-skins.json";
 
-// đọc file an toàn
+// ================= SAFE READ =================
 function safeRead(file) {
   try {
     return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -18,83 +15,106 @@ function safeRead(file) {
   }
 }
 
-// backup trước khi ghi
+// ================= BACKUP =================
 function backup(file) {
   if (!fs.existsSync(file)) return;
 
   const dir = "./backup";
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
-  const name = file.replace(".json", "");
   const date = new Date().toISOString().slice(0, 10);
-
-  fs.copyFileSync(file, `${dir}/${name}.${date}.json`);
+  fs.copyFileSync(file, `${dir}/hero-skins.${date}.json`);
 }
 
-// chuẩn hoá skin
-function normalize(s) {
-  return {
-    name: s.name || "",
-    hero: s.hero || "",
-    year: s.year || "",
-    month: s.month || "",
-    rarity: s.rarity || "",
-    source: s.source || "",
-    set: s.set || "",
-    image: s.image || ""
-  };
-}
+// ================= FETCH HTML =================
+async function fetchHTML() {
+  console.log("🔄 Fetching Vault HTML...");
 
-function main() {
-  console.log("🔄 Validating hero skins...");
-
-  let total = 0;
-  const heroes = [];
-
-  for (const [heroName, file] of Object.entries(HERO_MAP)) {
-    const data = safeRead(file);
-
-    if (!data || !Array.isArray(data.skins)) {
-      console.log("❌ Invalid:", heroName);
-      continue;
+  const res = await axios.get(URL, {
+    headers: {
+      "User-Agent": "Mozilla/5.0"
     }
+  });
 
-    backup(file);
+  return res.data;
+}
 
-    const skins = data.skins.map(normalize);
+// ================= PARSE =================
+function parseHTML(html) {
+  const $ = cheerio.load(html);
 
-    // ghi lại file chuẩn hoá
-    const out = {
-      hero: heroName,
-      updated: new Date().toISOString().slice(0, 10),
-      count: skins.length,
-      skins
-    };
+  const skins = [];
 
-    fs.writeFileSync(file, JSON.stringify(out, null, 2));
+  // ⚠️ selector này có thể cần chỉnh theo site thực tế
+  $(".mw-parser-output li, .skin, .card").each((i, el) => {
+    const text = $(el).text().trim();
 
-    total += skins.length;
+    if (!text || text.length < 3) return;
 
-    heroes.push({
-      id: heroName.toLowerCase().replace(/\s+/g, "_"),
-      name: heroName,
-      file,
-      count: skins.length // 🔥 FIX CHUẨN
+    // fake parse logic fallback (robust)
+    const parts = text.split("|").map(s => s.trim());
+
+    skins.push({
+      hero: parts[0] || "Unknown",
+      name: parts[1] || text,
+      year: parts[2] || "",
+      rarity: parts[3] || "",
+      source: "vault",
+      set: parts[4] || "",
+      image: ""
     });
+  });
 
-    console.log(`✔ ${heroName}: ${skins.length}`);
+  return skins;
+}
+
+// ================= MAIN =================
+async function main() {
+  console.log("🚀 Hero Skin Crawler Start");
+
+  const old = safeRead(OUTPUT);
+
+  let html;
+  try {
+    html = await fetchHTML();
+  } catch (e) {
+    console.log("❌ Fetch failed:", e.message);
+    return;
   }
 
-  // index file
-  const index = {
-    updated: new Date().toISOString().slice(0, 10),
-    total,
+  const skins = parseHTML(html);
+
+  console.log("📦 Parsed skins:", skins.length);
+
+  // ================= SAFETY GUARD =================
+  if (!skins || skins.length < MIN_SKINS) {
+    console.log(`❌ Abort update (<${MIN_SKINS})`);
+    console.log("🛑 Keep old data");
+
+    return;
+  }
+
+  // ================= GROUP =================
+  const heroes = {};
+  skins.forEach(s => {
+    const h = s.hero;
+    if (!heroes[h]) heroes[h] = [];
+    heroes[h].push(s);
+  });
+
+  const result = {
+    updated: new Date().toISOString(),
+    total: skins.length,
     heroes
   };
 
-  fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2));
+  // ================= BACKUP =================
+  if (old) backup(OUTPUT);
 
-  console.log("TOTAL:", total);
+  // ================= WRITE =================
+  fs.writeFileSync(OUTPUT, JSON.stringify(result, null, 2));
+
+  console.log("✅ Updated success:", skins.length);
 }
 
 main();
