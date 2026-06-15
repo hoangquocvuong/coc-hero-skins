@@ -9,6 +9,7 @@ const HERO_MAP = {
   "Dragon Duke": "dragon-duke.json"
 };
 
+// đọc file an toàn
 function safeRead(file) {
   try {
     return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -17,6 +18,7 @@ function safeRead(file) {
   }
 }
 
+// backup trước khi ghi
 function backup(file) {
   if (!fs.existsSync(file)) return;
 
@@ -29,6 +31,7 @@ function backup(file) {
   fs.copyFileSync(file, `${dir}/${name}.${date}.json`);
 }
 
+// chuẩn hoá skin
 function normalize(s) {
   return {
     name: s.name || "",
@@ -46,13 +49,13 @@ function main() {
   console.log("🔄 Validating hero skins...");
 
   let total = 0;
+  const heroes = [];
 
-  for (const hero of Object.keys(HERO_MAP)) {
-    const file = HERO_MAP[hero];
-
+  for (const [heroName, file] of Object.entries(HERO_MAP)) {
     const data = safeRead(file);
+
     if (!data || !Array.isArray(data.skins)) {
-      console.log("❌ Invalid:", hero);
+      console.log("❌ Invalid:", heroName);
       continue;
     }
 
@@ -60,8 +63,9 @@ function main() {
 
     const skins = data.skins.map(normalize);
 
+    // ghi lại file chuẩn hoá
     const out = {
-      hero,
+      hero: heroName,
       updated: new Date().toISOString().slice(0, 10),
       count: skins.length,
       skins
@@ -71,21 +75,21 @@ function main() {
 
     total += skins.length;
 
-    console.log(`✔ ${hero}: ${skins.length}`);
+    heroes.push({
+      id: heroName.toLowerCase().replace(/\s+/g, "_"),
+      name: heroName,
+      file,
+      count: skins.length // 🔥 FIX CHUẨN
+    });
+
+    console.log(`✔ ${heroName}: ${skins.length}`);
   }
 
+  // index file
   const index = {
     updated: new Date().toISOString().slice(0, 10),
     total,
-    heroes: Object.entries(HERO_MAP).map(([name, file]) => {
-      const d = safeRead(file);
-      return {
-        id: name.toLowerCase().replace(/\s+/g, "_"),
-        name,
-        file,
-        count: d?.count || 0
-      };
-    })
+    heroes
   };
 
   fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2));
