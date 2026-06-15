@@ -2,12 +2,28 @@ const fs = require("fs");
 
 const URL = "https://www.clashofclansvault.win/wiki/hero-skins";
 
+/**
+ * ===== HERO MAP (FIXED + ADD DRAGON DUKE) =====
+ */
 const HERO_MAP = {
   "Barbarian King": "barbarian-king.json",
   "Archer Queen": "archer-queen.json",
   "Grand Warden": "grand-warden.json",
   "Royal Champion": "royal-champion.json",
-  "Minion Prince": "minion-prince.json"
+  "Minion Prince": "minion-prince.json",
+  "Dragon Duke": "dragon-duke.json" // ✅ FIX HERE
+};
+
+/**
+ * ===== HERO CODES (UPDATED) =====
+ */
+const HERO_CODES = {
+  BK: "Barbarian King",
+  AQ: "Archer Queen",
+  GW: "Grand Warden",
+  RC: "Royal Champion",
+  MP: "Minion Prince",
+  DD: "Dragon Duke" // ✅ ADD NEW HERO CODE
 };
 
 function cleanText(s) {
@@ -38,6 +54,7 @@ function getImageUrl(hero, skinName) {
 
 function backup(file) {
   if (!fs.existsSync(file)) return;
+
   const dir = "./backup";
   if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
@@ -53,24 +70,11 @@ function safeRead(file) {
   }
 }
 
-function normalize(item) {
-  return {
-    name: cleanText(item.name),
-    hero: cleanText(item.hero),
-    year: item.year || "",
-    month: item.month || "",
-    rarity: item.rarity || "Legendary",
-    source: item.source || "",
-    set: item.set || "",
-    image: getImageUrl(item.hero, item.name)
-  };
-}
-
 /**
- * ====== CRAWLER (FIXED STABILITY) ======
+ * ===== CRAWLER FIXED =====
  */
 async function fetchAutoSkins() {
-  console.log("🔄 Fetching Vault...");
+  console.log("🔄 Fetching Vault HTML...");
 
   const res = await fetch(URL, {
     headers: {
@@ -92,78 +96,87 @@ async function fetchAutoSkins() {
       .replace(/<[^>]+>/g, " ")
   );
 
+  /**
+   * ✅ FIX REGEX: thêm DD
+   */
   const re =
-    /\b(BK|AQ|GW|RC|MP)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP)\b|$)/gi;
+    /\b(BK|AQ|GW|RC|MP|DD)\s+(.+?)\s+(Barbarian King|Archer Queen|Grand Warden|Royal Champion|Minion Prince|Dragon Duke)\s+(Legendary|Gold Pass|Standard)\s+(.+?)(?=\s+\b(?:BK|AQ|GW|RC|MP|DD)\b|$)/gi;
 
   const skins = [];
   let m;
 
   while ((m = re.exec(text)) !== null) {
-    const hero = cleanText(m[3]);
+    const code = m[1];
     const name = cleanText(m[2]);
+    const hero = cleanText(m[3]);
+    const rarity = m[4];
+    const source = cleanText(m[5]);
 
-    if (!hero || !name) continue;
+    if (!HERO_CODES[code]) continue;
     if (!HERO_MAP[hero]) continue;
+    if (!name || name.length > 80) continue;
 
     skins.push({
-      hero,
       name,
-      rarity: m[4],
-      source: cleanText(m[5]),
+      hero,
+      rarity,
+      source,
       year: "",
-      month: ""
+      month: "",
+      set: "",
+      image: getImageUrl(hero, name)
     });
   }
 
   console.log("📦 Parsed skins:", skins.length);
-
   return skins;
 }
 
 /**
- * ====== MERGE SAFE ======
+ * ===== SAFE MERGE =====
  */
-function merge(oldData, newData) {
+function merge(oldArr, newArr) {
   const map = new Map();
 
-  const put = (item) => {
-    const key = item.hero + "|" + item.name;
-    map.set(key, item);
+  const put = (x) => {
+    const key = x.hero + "|" + x.name;
+    map.set(key, x);
   };
 
-  (oldData || []).forEach(put);
-  (newData || []).forEach(put);
+  (oldArr || []).forEach(put);
+  (newArr || []).forEach(put);
 
   return Array.from(map.values());
 }
 
+/**
+ * ===== MAIN =====
+ */
 async function main() {
   console.log("🚀 Hero Skin Crawler Start");
 
   const autoSkins = await fetchAutoSkins();
 
-  // ❌ SAFE GUARD: nếu crawl fail → KHÔNG ghi đè
+  // ❌ SAFE GUARD: tránh mất data
   if (!autoSkins.length || autoSkins.length < 150) {
     console.log("❌ Abort update: data suspicious (<150)");
     console.log("🛑 Keep old data");
     return;
   }
 
-  let totalNew = 0;
-
   for (const hero of Object.keys(HERO_MAP)) {
     const file = HERO_MAP[hero];
 
-    const old = safeRead(file);
-    const oldSkins = old?.skins || [];
+    const oldData = safeRead(file);
+    const oldSkins = oldData?.skins || [];
 
-    const heroNew = autoSkins.filter(s => s.hero === hero);
+    const newSkins = autoSkins.filter(s => s.hero === hero);
 
-    const merged = merge(oldSkins, heroNew).map(normalize);
+    const merged = merge(oldSkins, newSkins);
 
-    // ❌ nếu không có thay đổi → skip
+    // ❌ nếu không thay đổi thì skip
     if (merged.length === oldSkins.length) {
-      console.log("⏭ No update:", hero);
+      console.log("⏭ No change:", hero);
       continue;
     }
 
@@ -179,18 +192,9 @@ async function main() {
     fs.writeFileSync(file, JSON.stringify(out, null, 2));
 
     console.log("✔ Updated:", hero, merged.length);
-    totalNew += merged.length;
   }
 
-  // index file
-  const index = {
-    updated: new Date().toISOString().slice(0, 10),
-    total: totalNew
-  };
-
-  fs.writeFileSync("hero-skins.json", JSON.stringify(index, null, 2));
-
-  console.log("✅ DONE TOTAL:", totalNew);
+  console.log("✅ DONE");
 }
 
 main().catch(err => {
