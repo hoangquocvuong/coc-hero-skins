@@ -1,9 +1,12 @@
-name: Auto Hero Skins Crawler
+name: Auto Hero Skins Build
 
 on:
-  schedule:
-    - cron: "0 0 * * 0"  # Chủ nhật hàng tuần
+  # Chạy thủ công
   workflow_dispatch:
+
+  # Chủ nhật hàng tuần (00:00 UTC)
+  schedule:
+    - cron: "0 0 * * 0"
 
 permissions:
   contents: write
@@ -12,39 +15,105 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # 🔥 FIX Node 24 deprecation warning
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
-      - name: Checkout repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: "24"
 
-      # ❌ KHÔNG npm install (vì bạn không có package.json)
-
-      - name: Run crawler
-        run: node update-hero-skins.js
-
-      - name: Commit changes
+      - name: Build Hero Skins JSON
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          node update-hero-skins.js
 
-          git add .
+      - name: Validate JSON Files
+        run: |
+          node - <<'EOF'
+          const fs = require("fs");
+
+          const files = [
+            "barbarian-king.json",
+            "archer-queen.json",
+            "grand-warden.json",
+            "royal-champion.json",
+            "minion-prince.json",
+            "dragon-duke.json"
+          ];
+
+          let total = 0;
+
+          for (const file of files) {
+
+            if (!fs.existsSync(file)) {
+              console.error("Missing:", file);
+              process.exit(1);
+            }
+
+            const data = JSON.parse(
+              fs.readFileSync(file, "utf8")
+            );
+
+            if (!Array.isArray(data.skins)) {
+              console.error(file + " -> skins is not array");
+              process.exit(1);
+            }
+
+            if (data.skins.length === 0) {
+              console.error(file + " -> ZERO skins");
+              process.exit(1);
+            }
+
+            if (data.count !== data.skins.length) {
+              console.error(
+                file +
+                " -> count mismatch (" +
+                data.count +
+                " != " +
+                data.skins.length +
+                ")"
+              );
+              process.exit(1);
+            }
+
+            total += data.count;
+
+            console.log(
+              "✔",
+              data.hero,
+              data.count
+            );
+          }
+
+          console.log("");
+          console.log("TOTAL:", total);
+          console.log("Validation OK");
+          EOF
+
+      - name: Commit Changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            hero-skins.json \
+            barbarian-king.json \
+            archer-queen.json \
+            grand-warden.json \
+            royal-champion.json \
+            minion-prince.json \
+            dragon-duke.json
 
           if git diff --cached --quiet; then
-            echo "No changes"
+            echo "No changes detected."
             exit 0
           fi
 
           git commit -m "auto: update hero skins"
 
-      - name: Push changes
-        run: git push origin main
+      - name: Push Changes
+        run: |
+          git push origin main
