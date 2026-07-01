@@ -4,6 +4,26 @@
   "count": 59,
   "skins": [
     {
+      "name": "Rosy Half-Time Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "July",
+      "rarity": "$9.99 USD",
+      "source": "Free (Heroes Journey)",
+      "set": "Rosy Half-Time Queen",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/archer-queen/rosy-half-time-queen.png"
+    },
+    {
+      "name": "Majestic Archer Queen",
+      "hero": "Archer Queen",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "Free (Heroes Journey)",
+      "set": "Majestic Archer Queen",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/archer-queen/majestic-archer-queen.png"
+    },
+    {
       "name": "Anime Fury Queen",
       "hero": "Archer Queen",
       "year": "2026",
