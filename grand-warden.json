@@ -4,6 +4,26 @@
   "count": 50,
   "skins": [
     {
+      "name": "Violet Half-Time Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "700 League Medals",
+      "set": "Violet Half-Time Warden",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/violet-half-time-warden.png"
+    },
+     {
+      "name": "Majestic Grand Warden",
+      "hero": "Grand Warden",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "Free (Heroes Journey)",
+      "set": "Majestic Grand Warden",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/grand-warden/majestic-grand-warden.png"
+    },
+    {
       "name": "Anime Fury Warden",
       "hero": "Grand Warden",
       "year": "2026",
