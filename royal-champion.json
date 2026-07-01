@@ -3,6 +3,26 @@
   "updated": "2026-06-28",
   "count": 46,
   "skins": [
+     {
+      "name": "Amber Half-Time Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "$9.99 USD",
+      "set": "Amber Half-Time Champion",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/amber-half-time-champion.png"
+    },
+    {
+      "name": "Majestic Royal Champion",
+      "hero": "Royal Champion",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "Free (Heroes Journey",
+      "set": "Majestic Royal Champion",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/royal-champion/majestic-royal-champion.png"
+    },
     {
       "name": "Anime Fury Champion",
       "hero": "Royal Champion",
