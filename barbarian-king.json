@@ -4,6 +4,26 @@
   "count": 64,
   "skins": [
     {
+      "name": "Sapphire Half-Time King",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "Free (Global Chat Release)",
+      "set": "Sapphire Half-Time King",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/barbarian-king/sapphire-half-time-king.png"
+    },
+    {
+      "name": "Majestic Barbarian King",
+      "hero": "Barbarian King",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "Free (Global Chat Release)",
+      "set": "Majestic Barbarian King",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/barbarian-king/majestic-barbarian-king.png"
+    },
+    {
       "name": "Anime Fury King",
       "hero": "Barbarian King",
       "year": "2026",
