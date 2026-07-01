@@ -1,8 +1,18 @@
 {
   "hero": "Dragon Duke",
   "updated": "2026-06-28",
-  "count": 4,
+  "count": 5,
   "skins": [
+    {
+      "name": "Majestic Dragon Duke",
+      "hero": "Dragon Duke",
+      "year": "2026",
+      "month": "",
+      "rarity": "Legendary",
+      "source": "Free (Heroes Journey)",
+      "set": "Majestic Dragon Duke",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/dragon-duke/majestic-dragon-duke.png"
+    },
     {
       "name": "Anime Fury Duke",
       "hero": "Dragon Duke",
