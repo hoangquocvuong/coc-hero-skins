@@ -4,6 +4,16 @@
   "count": 17,
   "skins": [
     {
+      "name": "Majestic Minion Prince",
+      "hero": "Minion Prince",
+      "year": "2026",
+      "month": "July",
+      "rarity": "Legendary",
+      "source": "Free (Heroes Journey)",
+      "set": "Majestic Minion Prince",
+      "image": "https://hoangquocvuong.github.io/coc-hero-images/minion-prince/majestic-minion-prince.png"
+    },
+    {
       "name": "Anime Fury Prince",
       "hero": "Minion Prince",
       "year": "2026",
