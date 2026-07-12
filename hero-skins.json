@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-05",
-  "total": 249,
+  "updated": "2026-07-12",
+  "total": 250,
   "heroes": [
     {
       "id": "barbarian_king",
@@ -30,7 +30,7 @@
       "id": "minion_prince",
       "name": "Minion Prince",
       "file": "minion-prince.json",
-      "count": 17
+      "count": 18
     },
     {
       "id": "dragon_duke",
